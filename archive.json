@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-08T01:24:04.388182+00:00",
-  "repo": "rohanmahy/mahy-mls-xwing",
+  "timestamp": "2025-07-13T01:42:53.206811+00:00",
+  "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
       "name": "bug",
@@ -54,10 +54,10 @@
       "number": 5,
       "id": "I_kwDOLbkcE86_WEne",
       "title": "Should we add ciphersuites with pure PQ KEM + signatures?",
-      "url": "https://github.com/rohanmahy/mahy-mls-xwing/issues/5",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/5",
       "state": "OPEN",
       "author": "rohanmahy",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
@@ -72,7 +72,7 @@
       "number": 1,
       "id": "PR_kwDOLbkcE86M_m_J",
       "title": "Update for IETF 122",
-      "url": "https://github.com/rohanmahy/mahy-mls-xwing/pull/1",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/1",
       "state": "MERGED",
       "author": "bifurcation",
       "authorAssociation": "CONTRIBUTOR",
@@ -81,7 +81,7 @@
       "body": "* Refresh references, including new combiner drafts\r\n* Include a more fulsome collection of algorithm options",
       "createdAt": "2025-02-28T22:33:48Z",
       "updatedAt": "2025-03-02T15:53:11Z",
-      "baseRepository": "rohanmahy/mahy-mls-xwing",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "2126295f9d0853b8ad818bc98c6088f0806c3a93",
       "headRepository": "bifurcation/mahy-mls-xwing",
@@ -96,7 +96,7 @@
       "comments": [
         {
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "body": "Created this issue: https://github.com/cfrg/draft-irtf-cfrg-hybrid-kems/issues/8",
           "createdAt": "2025-03-02T15:53:10Z",
           "updatedAt": "2025-03-02T15:53:10Z"
@@ -109,7 +109,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-02-28T23:44:54Z",
@@ -129,7 +129,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "CHANGES_REQUESTED",
           "body": "We need to agree on what hashes and aeads go with which KEMs",
           "createdAt": "2025-02-28T23:47:12Z",
@@ -173,7 +173,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-01T00:07:38Z",
@@ -273,7 +273,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-01T19:55:16Z",
@@ -293,7 +293,7 @@
             "abbreviatedOid": "d454429"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-01T20:21:57Z",
@@ -313,7 +313,7 @@
             "abbreviatedOid": "d454429"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-01T20:23:02Z",
@@ -333,7 +333,7 @@
             "abbreviatedOid": "5cbdd63"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-01T20:24:42Z",
@@ -393,7 +393,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-02T15:13:12Z",
@@ -413,7 +413,7 @@
             "abbreviatedOid": "af73541"
           },
           "author": "rohanmahy",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-03-02T15:46:15Z",
@@ -433,19 +433,19 @@
       "number": 2,
       "id": "PR_kwDOLbkcE86NFsZq",
       "title": "IANA register the SHAKE256 KDF",
-      "url": "https://github.com/rohanmahy/mahy-mls-xwing/pull/2",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/2",
       "state": "MERGED",
       "author": "rohanmahy",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-03-03T03:20:52Z",
       "updatedAt": "2025-03-03T03:21:52Z",
-      "baseRepository": "rohanmahy/mahy-mls-xwing",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "09825e9547a79395c8d0ec415620a42d8c931445",
-      "headRepository": "rohanmahy/mahy-mls-xwing",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "iana-kdf",
       "headRefOid": "0d84fba44391f1c40d9da6cac2b8a9284b8edd10",
       "closedAt": "2025-03-03T03:21:52Z",
@@ -461,19 +461,19 @@
       "number": 3,
       "id": "PR_kwDOLbkcE86d0p2N",
       "title": "Reference new HPKE",
-      "url": "https://github.com/rohanmahy/mahy-mls-xwing/pull/3",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/3",
       "state": "MERGED",
       "author": "rohanmahy",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "adjust document to align with draft-ietf-hpke-pq",
       "createdAt": "2025-07-07T20:35:49Z",
       "updatedAt": "2025-07-07T20:36:17Z",
-      "baseRepository": "rohanmahy/mahy-mls-xwing",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "afb3a103fecf27c35c229c41ac0ad037202a207f",
-      "headRepository": "rohanmahy/mahy-mls-xwing",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "reference-new-hpke",
       "headRefOid": "6437a369fdc7503106fe8c2ffcdcc8d9bcc8c376",
       "closedAt": "2025-07-07T20:36:17Z",
@@ -489,21 +489,156 @@
       "number": 4,
       "id": "PR_kwDOLbkcE86d0yg_",
       "title": "Add pure PQ ciphersuites with PQ sigs",
-      "url": "https://github.com/rohanmahy/mahy-mls-xwing/pull/4",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/4",
       "state": "OPEN",
       "author": "rohanmahy",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-07T20:55:57Z",
-      "updatedAt": "2025-07-07T20:55:57Z",
-      "baseRepository": "rohanmahy/mahy-mls-xwing",
+      "updatedAt": "2025-07-10T21:37:07Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "108118c080c8e2c4dfbd8a2621c29895876ee9c2",
-      "headRepository": "rohanmahy/mahy-mls-xwing",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "mldsa",
-      "headRefOid": "2d6110119131da2a3d11aa55d20d90854aa34698",
+      "headRefOid": "932b916342bf67c385abc311b1960862affd245a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE86zQkGa",
+          "commit": {
+            "abbreviatedOid": "2d61101"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-10T21:31:19Z",
+          "updatedAt": "2025-07-10T21:31:20Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\n| TBD6 | MLS_128_ML-KEM-768_AES256GCM_SHA384_ML-DSA-65  |  Y  | RFCXXXX |\r\n```",
+              "createdAt": "2025-07-10T21:31:19Z",
+              "updatedAt": "2025-07-10T21:31:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE86zQkMz",
+          "commit": {
+            "abbreviatedOid": "2d61101"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-10T21:31:34Z",
+          "updatedAt": "2025-07-10T21:31:34Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "```suggestion\r\n| 0xTBD6 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |\r\n```",
+              "createdAt": "2025-07-10T21:31:34Z",
+              "updatedAt": "2025-07-10T21:31:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE86zQlx5",
+          "commit": {
+            "abbreviatedOid": "2d61101"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-10T21:33:42Z",
+          "updatedAt": "2025-07-10T21:33:42Z",
+          "comments": [
+            {
+              "originalPosition": 63,
+              "body": "```suggestion\r\nThe first five ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.\r\n\r\nThe last two cipher suites also use post-quantum signature algorithms.\r\n```",
+              "createdAt": "2025-07-10T21:33:42Z",
+              "updatedAt": "2025-07-10T21:33:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE86zQmUF",
+          "commit": {
+            "abbreviatedOid": "2d61101"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-10T21:34:57Z",
+          "updatedAt": "2025-07-10T21:34:57Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nThe signature schemes for ML-DSA-65 and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.\r\n```",
+              "createdAt": "2025-07-10T21:34:57Z",
+              "updatedAt": "2025-07-10T21:34:57Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOLbkcE86edSjF",
+      "title": "Rename draft-mahy-mls-pq to draft-ietf-mls-pq-ciphersuites",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/6",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-11T09:12:34Z",
+      "updatedAt": "2025-07-11T09:17:21Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "61e36d269bb624d2135cef0b4e28bbca1225be0e",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "make-wg-version",
+      "headRefOid": "828b2de49b80476636762fdb7545243564c35553",
+      "closedAt": "2025-07-11T09:17:21Z",
+      "mergedAt": "2025-07-11T09:17:21Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "7b1e73e748bfcd811956f5ac272700909d28e2ee"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOLbkcE86edbtH",
+      "title": "align with hpke-pq PR#27",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/7",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/hpkewg/hpke-pq/pull/27/files\r\n",
+      "createdAt": "2025-07-11T09:25:35Z",
+      "updatedAt": "2025-07-11T09:25:56Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "7b1e73e748bfcd811956f5ac272700909d28e2ee",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "xwing-code",
+      "headRefOid": "d0d1dc117e016193844f6d6ff5b5ebdf5025bb55",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
