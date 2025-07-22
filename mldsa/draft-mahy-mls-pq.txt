@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                            Rohan Mahy Consulting Services
 Intended status: Informational                              R. L. Barnes
-Expires: 11 January 2026                                           Cisco
-                                                            10 July 2025
+Expires: 23 January 2026                                           Cisco
+                                                            22 July 2025
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 January 2026.
+   This Internet-Draft will expire on 23 January 2026.
 
 Copyright Notice
 
@@ -168,8 +168,8 @@ Table of Contents
     | TBD6  | MLS_128_ML-KEM-                      | Y   | RFCXXXX   |
     |       | 768_AES256GCM_SHA384_ML-DSA-65       |     |           |
     +-------+--------------------------------------+-----+-----------+
-    | TBD7  | MLS_192_ML-KEM-                      | Y   | RFCXXXX   |
-    |       | 1024_AES256GCM_SHA384_ML-DSA-87      |     |           |
+    | TBD7  | MLS_256_ML-KEM-                      | Y   | RFCXXXX   |
+    |       | 1024_AES256GCM_SHA512_ML-DSA-87      |     |           |
     +-------+--------------------------------------+-----+-----------+
 
                                  Table 1
@@ -302,11 +302,11 @@ Table of Contents
               lamps-dilithium-certificates-12>.
 
    [I-D.irtf-cfrg-hybrid-kems]
-              Connolly, D. and R. Barnes, "Hybrid PQ/T Key Encapsulation
-              Mechanisms", Work in Progress, Internet-Draft, draft-irtf-
-              cfrg-hybrid-kems-04, 7 July 2025,
+              Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
+              Encapsulation Mechanisms", Work in Progress, Internet-
+              Draft, draft-irtf-cfrg-hybrid-kems-05, 20 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-04>.
+              hybrid-kems-05>.
 
 Acknowledgments
 
