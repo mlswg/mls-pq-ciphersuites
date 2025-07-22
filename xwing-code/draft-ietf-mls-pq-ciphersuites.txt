@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 12 January 2026                                           Cisco
-                                                            11 July 2025
+Expires: 23 January 2026                                           Cisco
+                                                            22 July 2025
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 January 2026.
+   This Internet-Draft will expire on 23 January 2026.
 
 Copyright Notice
 
@@ -142,24 +142,25 @@ Table of Contents
    "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number
    assigned to this document:
 
-    +=====+===========================================+===+===========+
-    |Value| Name                                      |Rec| Reference |
-    +=====+===========================================+===+===========+
-    |TBD1 | MLS_128_QSF-KEM(ML-KEM-                   |Y  | RFCXXXX   |
-    |     | 768,X25519)_AES256GCM_SHA384_Ed25519      |   |           |
-    +-----+-------------------------------------------+---+-----------+
-    |TBD2 | MLS_128_QSF-KEM(ML-KEM-                   |Y  | RFCXXXX   |
-    |     | 768,P-256)_AES256GCM_SHA384_P256          |   |           |
-    +-----+-------------------------------------------+---+-----------+
-    |TBD3 | MLS_192_QSF-KEM(ML-KEM-                   |Y  | RFCXXXX   |
-    |     | 1024,P-384)_AES256GCM_SHA384_P384         |   |           |
-    +-----+-------------------------------------------+---+-----------+
-    |TBD4 | MLS_128_ML_KEM_768_AES256GCM_SHA384_P256  |Y  | RFCXXXX   |
-    +-----+-------------------------------------------+---+-----------+
-    |TBD5 | MLS_192_ML_KEM_1024_AES256GCM_SHA384_P384 |Y  | RFCXXXX   |
-    +-----+-------------------------------------------+---+-----------+
+   +=======+==========================================+===+===========+
+   | Value | Name                                     |Rec| Reference |
+   +=======+==========================================+===+===========+
+   | TBD1  | MLS_128_QSF-                             |Y  | RFCXXXX   |
+   |       | X25519-MLKEM768_AES256GCM_SHA384_Ed25519 |   |           |
+   +-------+------------------------------------------+---+-----------+
+   | TBD2  | MLS_128_QSF-                             |Y  | RFCXXXX   |
+   |       | P256-MLKEM768_AES256GCM_SHA384_P256      |   |           |
+   +-------+------------------------------------------+---+-----------+
+   | TBD3  | MLS_192_QSF-                             |Y  | RFCXXXX   |
+   |       | P384-MLKEM1024_AES256GCM_SHA384_P384     |   |           |
+   +-------+------------------------------------------+---+-----------+
+   | TBD4  | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256 |Y  | RFCXXXX   |
+   +-------+------------------------------------------+---+-----------+
+   | TBD5  | MLS_192_ML-KEM-                          |Y  | RFCXXXX   |
+   |       | 1024_AES256GCM_SHA384_P384               |   |           |
+   +-------+------------------------------------------+---+-----------+
 
-                                  Table 1
+                                 Table 1
 
    The mapping of cipher suites to HPKE primitives [I-D.ietf-hpke-hpke],
    HMAC hash functions, and TLS signature schemes [RFC8446] is as
@@ -259,11 +260,11 @@ Table of Contents
 4.2.  Informative References
 
    [I-D.irtf-cfrg-hybrid-kems]
-              Connolly, D. and R. Barnes, "Hybrid PQ/T Key Encapsulation
-              Mechanisms", Work in Progress, Internet-Draft, draft-irtf-
-              cfrg-hybrid-kems-04, 7 July 2025,
+              Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
+              Encapsulation Mechanisms", Work in Progress, Internet-
+              Draft, draft-irtf-cfrg-hybrid-kems-05, 20 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-04>.
+              hybrid-kems-05>.
 
 Acknowledgments
 
