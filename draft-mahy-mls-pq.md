@@ -100,7 +100,7 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 | TBD3 | MLS_192_QSF-KEM(ML-KEM-1024,P-384)_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
 | TBD4 | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256       |  Y  | RFCXXXX |
 | TBD5 | MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384      |  Y  | RFCXXXX |
-| TBD6 | MLS_128_ML-KEM-768_AES256GCM_SHA384_ML-DSA-65  |  Y  | RFCXXXX |
+| TBD6 | MLS_192_ML-KEM-768_AES256GCM_SHA384_ML-DSA-65  |  Y  | RFCXXXX |
 | TBD7 | MLS_256_ML-KEM-1024_AES256GCM_SHA512_ML-DSA-87 |  Y  | RFCXXXX |
 
 The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!RFC8446}} is as follows:
