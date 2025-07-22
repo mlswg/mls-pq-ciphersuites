@@ -165,7 +165,7 @@ Table of Contents
     | TBD5  | MLS_192_ML-KEM-                      | Y   | RFCXXXX   |
     |       | 1024_AES256GCM_SHA384_P384           |     |           |
     +-------+--------------------------------------+-----+-----------+
-    | TBD6  | MLS_128_ML-KEM-                      | Y   | RFCXXXX   |
+    | TBD6  | MLS_192_ML-KEM-                      | Y   | RFCXXXX   |
     |       | 768_AES256GCM_SHA384_ML-DSA-65       |     |           |
     +-------+--------------------------------------+-----+-----------+
     | TBD7  | MLS_256_ML-KEM-                      | Y   | RFCXXXX   |
