@@ -66,7 +66,7 @@ In response to these concerns, the cryptographic community has defined "post-qua
 Symmetric algorithms can be made post-quantum secure simply by using longer keys and hashes.
 For asymmetric operations such as KEMs and signatures, entirely new algorithms are needed.
 
-In this document, we define ciphersuites that use the post-quantum secure Module-Lattice-Based KEM (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{ML-DSA}} post-quantum signature algorithms.
+In this document, we define ciphersuites that use the post-quantum secure Module-Lattice-Based KEM (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{MLDSA}} post-quantum signature algorithms.
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
 The cipher suites with post-quantum signatures use only post-quantum KEMs.
 
