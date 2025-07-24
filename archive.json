@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-13T01:42:53.206811+00:00",
+  "timestamp": "2025-07-24T01:37:34.102825+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -497,13 +497,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-07-07T20:55:57Z",
-      "updatedAt": "2025-07-10T21:37:07Z",
+      "updatedAt": "2025-07-22T11:57:49Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "108118c080c8e2c4dfbd8a2621c29895876ee9c2",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "mldsa",
-      "headRefOid": "932b916342bf67c385abc311b1960862affd245a",
+      "headRefOid": "6ccaf9ba724eeb869ac0adb623e585e793d5acd2",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -589,6 +589,46 @@
               "updatedAt": "2025-07-10T21:34:57Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE861Wxlj",
+          "commit": {
+            "abbreviatedOid": "932b916"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-22T11:55:31Z",
+          "updatedAt": "2025-07-22T11:55:32Z",
+          "comments": [
+            {
+              "originalPosition": 45,
+              "body": "```suggestion\r\n| TBD7 | MLS_256_ML-KEM-1024_AES256GCM_SHA512_ML-DSA-87 |  Y  | RFCXXXX |\r\n```",
+              "createdAt": "2025-07-22T11:55:31Z",
+              "updatedAt": "2025-07-22T11:55:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE861Wy7V",
+          "commit": {
+            "abbreviatedOid": "116507d"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-22T11:57:31Z",
+          "updatedAt": "2025-07-22T11:57:32Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\n| TBD6 | MLS_192_ML-KEM-768_AES256GCM_SHA384_ML-DSA-65  |  Y  | RFCXXXX |\r\n```\r\n",
+              "createdAt": "2025-07-22T11:57:31Z",
+              "updatedAt": "2025-07-22T11:57:32Z"
+            }
+          ]
         }
       ]
     },
@@ -632,19 +672,40 @@
       "labels": [],
       "body": "https://github.com/hpkewg/hpke-pq/pull/27/files\r\n",
       "createdAt": "2025-07-11T09:25:35Z",
-      "updatedAt": "2025-07-11T09:25:56Z",
+      "updatedAt": "2025-07-22T11:53:58Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "7b1e73e748bfcd811956f5ac272700909d28e2ee",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "xwing-code",
-      "headRefOid": "d0d1dc117e016193844f6d6ff5b5ebdf5025bb55",
+      "headRefOid": "517367394bfcbd8a72afd0b8692da6bafc25a164",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE861WwDo",
+          "commit": {
+            "abbreviatedOid": "d0d1dc1"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-22T11:53:16Z",
+          "updatedAt": "2025-07-22T11:53:17Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\n| TBD1 | MLS_128_QSF-X25519-MLKEM768_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |\r\n| TBD2 | MLS_128_QSF-P256-MLKEM768_AES256GCM_SHA384_P256     |  Y  | RFCXXXX |\r\n| TBD3 | MLS_192_QSF-P384-MLKEM1024_AES256GCM_SHA384_P384    |  Y  | RFCXXXX |\r\n| TBD4 | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256   |  Y  | RFCXXXX |\r\n| TBD5 | MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384  |  Y  | RFCXXXX |\r\n```",
+              "createdAt": "2025-07-22T11:53:17Z",
+              "updatedAt": "2025-07-22T11:53:17Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
