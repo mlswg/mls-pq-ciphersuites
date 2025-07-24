@@ -69,11 +69,11 @@ In this document, we define ciphersuites that use the post-quantum secure Module
 
 Following the pattern of base MLS, we define several variations, to allow for users that prefer to only use NIST-approved cryptography, users that prefer a higher security level, and users that prefer a PQ/traditional hybrid KEM over pure ML-KEM:
 
-* ML-KEM-768 + X25519 (Medium security, Non-NIST, PQ/T hybrid)
-* ML-KEM-768 + P-256 (Medium security, NIST, PQ/T hybrid)
-* ML-KEM-1024 + P-384 (High security, NIST, PQ/T hybrid)
-* ML-KEM-768 (Medium security, NIST, pure PQ)
-* ML-KEM-1024 (High security, NIST, pure PQ)
+* ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid)
+* ML-KEM-768 + P-256 (128-bit security, NIST, PQ/T hybrid)
+* ML-KEM-1024 + P-384 (192-bit security, NIST, PQ/T hybrid)
+* ML-KEM-768 (192-bit security, NIST, pure PQ)
+* ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
 For all the cipher suites defined in this document, we use AES256 GCM {{GCM}} as the Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm;
 HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function;
