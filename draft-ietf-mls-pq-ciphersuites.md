@@ -89,20 +89,20 @@ For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs d
 This document requests that IANA add the following entries to the "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number assigned to this document:
 
 | Value  | Name                                       | Rec | Reference |
-|:=======|:===========================================|:===:|:=========:|
-| TBD1 | MLS_128_KitchenSink-KEM(ML-KEM-768,X25519)_AES256GCM_SHA384_Ed25519    |  Y  | RFCXXXX |
-| TBD2 | MLS_128_QSF-KEM(ML-KEM-768,P-256)_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |
-| TBD3 | MLS_192_QSF-KEM(ML-KEM-1024,P-384)_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
-| TBD4 | MLS_128_ML_KEM_768_AES256GCM_SHA384_P256   |  Y  | RFCXXXX |
-| TBD5 | MLS_192_ML_KEM_1024_AES256GCM_SHA384_P384  |  Y  | RFCXXXX |
+|:=======|:===========================================|:====|:==========|
+| TBD1 | MLS_128_QSF-X25519-MLKEM768_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |
+| TBD2 | MLS_128_QSF-P256-MLKEM768_AES256GCM_SHA384_P256     |  Y  | RFCXXXX |
+| TBD3 | MLS_192_QSF-P384-MLKEM1024_AES256GCM_SHA384_P384    |  Y  | RFCXXXX |
+| TBD4 | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256   |  Y  | RFCXXXX |
+| TBD5 | MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384  |  Y  | RFCXXXX |
 
 The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!RFC8446}} is as follows:
 
 | Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:=======|:========|:=======|:=======|:=======|:=======================|
-| 0xTBD1 | 0x0051  | 0x0011 | 0x0002 | SHA384 | ed25519                |
+| 0xTBD1 | 0x647a  | 0x0011 | 0x0002 | SHA384 | ed25519                |
 | 0xTBD2 | 0x0050  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
-| 0xTBD3 | 0x0052  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+| 0xTBD3 | 0x0051  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
 | 0xTBD4 | 0x0041  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
 | 0xTBD5 | 0x0042  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
 
