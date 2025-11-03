@@ -93,15 +93,15 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 {{MLDSA}} are defined in {{!I-
 
 This document requests that IANA add the following entries to the "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number assigned to this document:
 
-| Value | Name                                              | Rec | Reference |
-|:======|:====================================================|:====|:========|
-| TBD1 | MLS_128_QSF-X25519-MLKEM768_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |
-| TBD2 | MLS_128_QSF-P256-MLKEM768_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |
-| TBD3 | MLS_192_QSF-P384-MLKEM1024_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
-| TBD4 | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256             |  Y  | RFCXXXX |
-| TBD5 | MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384            |  Y  | RFCXXXX |
-| TBD6 | MLS_192_ML-KEM-768_AES256GCM_SHA384_MLDSA65          |  Y  | RFCXXXX |
-| TBD7 | MLS_256_ML-KEM-1024_AES256GCM_SHA512_MLDSA87         |  Y  | RFCXXXX |
+| Value | Name                                            | Rec | Reference |
+|:======|:================================================|:====|:========|
+| TBD1 | MLS_128_MLKEM768-X25519_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |
+| TBD2 | MLS_128_MLKEM768-P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |
+| TBD3 | MLS_192_MLKEM1024-P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
+| TBD4 | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256         |  Y  | RFCXXXX |
+| TBD5 | MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384        |  Y  | RFCXXXX |
+| TBD6 | MLS_192_ML-KEM-768_AES256GCM_SHA384_MLDSA65      |  Y  | RFCXXXX |
+| TBD7 | MLS_256_ML-KEM-1024_AES256GCM_SHA512_MLDSA87     |  Y  | RFCXXXX |
 
 
 The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!RFC8446}} is as follows:
