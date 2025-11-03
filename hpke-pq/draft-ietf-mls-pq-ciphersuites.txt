@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 25 January 2026                                           Cisco
-                                                            24 July 2025
+Expires: 7 May 2026                                                Cisco
+                                                         3 November 2025
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 January 2026.
+   This Internet-Draft will expire on 7 May 2026.
 
 Copyright Notice
 
@@ -150,31 +150,25 @@ Table of Contents
    "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number
    assigned to this document:
 
-   +=======+==========================================+===+===========+
-   | Value | Name                                     |Rec| Reference |
-   +=======+==========================================+===+===========+
-   | TBD1  | MLS_128_QSF-                             |Y  | RFCXXXX   |
-   |       | X25519-MLKEM768_AES256GCM_SHA384_Ed25519 |   |           |
-   +-------+------------------------------------------+---+-----------+
-   | TBD2  | MLS_128_QSF-                             |Y  | RFCXXXX   |
-   |       | P256-MLKEM768_AES256GCM_SHA384_P256      |   |           |
-   +-------+------------------------------------------+---+-----------+
-   | TBD3  | MLS_192_QSF-                             |Y  | RFCXXXX   |
-   |       | P384-MLKEM1024_AES256GCM_SHA384_P384     |   |           |
-   +-------+------------------------------------------+---+-----------+
-   | TBD4  | MLS_128_ML-KEM-768_AES256GCM_SHA384_P256 |Y  | RFCXXXX   |
-   +-------+------------------------------------------+---+-----------+
-   | TBD5  | MLS_192_ML-KEM-                          |Y  | RFCXXXX   |
-   |       | 1024_AES256GCM_SHA384_P384               |   |           |
-   +-------+------------------------------------------+---+-----------+
-   | TBD6  | MLS_192_ML-KEM-                          |Y  | RFCXXXX   |
-   |       | 768_AES256GCM_SHA384_MLDSA65             |   |           |
-   +-------+------------------------------------------+---+-----------+
-   | TBD7  | MLS_256_ML-KEM-                          |Y  | RFCXXXX   |
-   |       | 1024_AES256GCM_SHA512_MLDSA87            |   |           |
-   +-------+------------------------------------------+---+-----------+
+   +=====+================================================+===+=========+
+   |Value|Name                                            |Rec|Reference|
+   +=====+================================================+===+=========+
+   |TBD1 |MLS_128_MLKEM768-X25519_AES256GCM_SHA384_Ed25519|Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD2 |MLS_128_MLKEM768-P256_AES256GCM_SHA384_P256     |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD3 |MLS_192_MLKEM1024-P384_AES256GCM_SHA384_P384    |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD4 |MLS_128_ML-KEM-768_AES256GCM_SHA384_P256        |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD5 |MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384       |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD6 |MLS_192_ML-KEM-768_AES256GCM_SHA384_MLDSA65     |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
+   |TBD7 |MLS_256_ML-KEM-1024_AES256GCM_SHA512_MLDSA87    |Y  |RFCXXXX  |
+   +-----+------------------------------------------------+---+---------+
 
-                                 Table 1
+                                  Table 1
 
    The mapping of cipher suites to HPKE primitives [I-D.ietf-hpke-hpke],
    HMAC hash functions, and TLS signature schemes [RFC8446] is as
@@ -255,9 +249,9 @@ Table of Contents
    [I-D.ietf-tls-mldsa]
               Hollebeek, T., Schmieg, S., and B. Westerbaan, "Use of ML-
               DSA in TLS 1.3", Work in Progress, Internet-Draft, draft-
-              ietf-tls-mldsa-00, 16 May 2025,
+              ietf-tls-mldsa-01, 26 September 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              mldsa-00>.
+              mldsa-01>.
 
    [MLDSA]    "Module-lattice-based digital signature standard",
               National Institute of Standards and Technology (U.S.),
@@ -298,16 +292,16 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure -
               Algorithm Identifiers for the Module-Lattice-Based Digital
               Signature Algorithm (ML-DSA)", Work in Progress, Internet-
-              Draft, draft-ietf-lamps-dilithium-certificates-12, 26 June
-              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              lamps-dilithium-certificates-12>.
+              Draft, draft-ietf-lamps-dilithium-certificates-13, 30
+              September 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-dilithium-certificates-13>.
 
    [I-D.irtf-cfrg-hybrid-kems]
               Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
               Encapsulation Mechanisms", Work in Progress, Internet-
-              Draft, draft-irtf-cfrg-hybrid-kems-05, 20 July 2025,
+              Draft, draft-irtf-cfrg-hybrid-kems-07, 20 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-05>.
+              hybrid-kems-07>.
 
 Acknowledgments
 
