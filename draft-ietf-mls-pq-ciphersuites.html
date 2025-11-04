@@ -11,7 +11,7 @@
        This document registers new cipher suites for Messaging Layer Security (MLS) based on "post-quantum" algorithms, which are intended to be resilient to attack by quantum computers.
 These cipher suites are constructed using the new Module-Lattice Key Encapsulation Mechanism (ML-KEM), optionally in combination with traditional elliptic curve KEMs, together with appropriate authenticated encryption, hash, and signature algorithms. 
     ' name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="ML-KEM" name="keyword">
 <meta content="Kyber" name="keyword">
 <meta content="post-quantum" name="keyword">
@@ -23,19 +23,18 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
 <meta content="Key Exchange Mechanism" name="keyword">
 <meta content="draft-ietf-mls-pq-ciphersuites-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
-    Python 3.12.11
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.3.8
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.4
-    setuptools 80.9.0
-    wcwidth 0.2.13
+    requests 2.32.5
+    wcwidth 0.2.14
 -->
 <link href="draft-ietf-mls-pq-ciphersuites.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1054,11 +1053,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">MLS Cipher Suites with ML-KEM</td>
-<td class="right">July 2025</td>
+<td class="right">November 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mahy &amp; Barnes</td>
-<td class="center">Expires 25 January 2026</td>
+<td class="center">Expires 8 May 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1071,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-mls-pq-ciphersuites-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-24" class="published">24 July 2025</time>
+<time datetime="2025-11-04" class="published">4 November 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-25">25 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-05-08">8 May 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1130,7 +1129,7 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1262,43 +1261,43 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
           <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD1</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_128_QSF-X25519-MLKEM768_AES256GCM_SHA384_Ed25519</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD2</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_128_QSF-P256-MLKEM768_AES256GCM_SHA384_P256</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768P256_AES256GCM_SHA384_P256</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD3</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_192_QSF-P384-MLKEM1024_AES256GCM_SHA384_P384</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD4</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_128_ML-KEM-768_AES256GCM_SHA384_P256</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768_AES256GCM_SHA384_P256</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD5</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM1024_AES256GCM_SHA384_P384</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD6</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_192_ML-KEM-768_AES256GCM_SHA384_MLDSA65</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD7</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_256_ML-KEM-1024_AES256GCM_SHA512_MLDSA87</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
@@ -1413,15 +1412,15 @@ For security considerations related to the post-quantum signature algorithms use
 <dd class="break"></dd>
 <dt id="I-D.ietf-hpke-hpke">[I-D.ietf-hpke-hpke]</dt>
         <dd>
-<span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Bhargavan, K.</span>, <span class="refAuthor">Lipp, B.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Hybrid Public Key Encryption"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-hpke-hpke-01</span>, <time datetime="2025-06-24" class="refDate">24 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-01">https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Bhargavan, K.</span>, <span class="refAuthor">Lipp, B.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Hybrid Public Key Encryption"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-hpke-hpke-02</span>, <time datetime="2025-11-04" class="refDate">4 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-02">https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-hpke-pq">[I-D.ietf-hpke-pq]</dt>
         <dd>
-<span class="refAuthor">Barnes, R.</span>, <span class="refTitle">"Post-Quantum and Post-Quantum/Traditional Hybrid Algorithms for HPKE"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-hpke-pq-01</span>, <time datetime="2025-06-30" class="refDate">30 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-01">https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Barnes, R.</span>, <span class="refTitle">"Post-Quantum and Post-Quantum/Traditional Hybrid Algorithms for HPKE"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-hpke-pq-02</span>, <time datetime="2025-11-04" class="refDate">4 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-02">https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-mldsa">[I-D.ietf-tls-mldsa]</dt>
         <dd>
-<span class="refAuthor">Hollebeek, T.</span>, <span class="refAuthor">Schmieg, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of ML-DSA in TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-mldsa-00</span>, <time datetime="2025-05-16" class="refDate">16 May 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-mldsa-00">https://datatracker.ietf.org/doc/html/draft-ietf-tls-mldsa-00</a>&gt;</span>. </dd>
+<span class="refAuthor">Hollebeek, T.</span>, <span class="refAuthor">Schmieg, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Use of ML-DSA in TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-mldsa-01</span>, <time datetime="2025-09-26" class="refDate">26 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-mldsa-01">https://datatracker.ietf.org/doc/html/draft-ietf-tls-mldsa-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="MLDSA">[MLDSA]</dt>
         <dd>
@@ -1462,11 +1461,11 @@ For security considerations related to the post-quantum signature algorithms use
 <dl class="references">
 <dt id="I-D.ietf-lamps-dilithium-certificates">[I-D.ietf-lamps-dilithium-certificates]</dt>
         <dd>
-<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Digital Signature Algorithm (ML-DSA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-12</span>, <time datetime="2025-06-26" class="refDate">26 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-12">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-12</a>&gt;</span>. </dd>
+<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Digital Signature Algorithm (ML-DSA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-13</span>, <time datetime="2025-09-30" class="refDate">30 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-13">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-13</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.irtf-cfrg-hybrid-kems">[I-D.irtf-cfrg-hybrid-kems]</dt>
       <dd>
-<span class="refAuthor">Connolly, D.</span>, <span class="refAuthor">Barnes, R.</span>, and <span class="refAuthor">P. Grubbs</span>, <span class="refTitle">"Hybrid PQ/T Key Encapsulation Mechanisms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-hybrid-kems-05</span>, <time datetime="2025-07-20" class="refDate">20 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hybrid-kems-05">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hybrid-kems-05</a>&gt;</span>. </dd>
+<span class="refAuthor">Connolly, D.</span>, <span class="refAuthor">Barnes, R.</span>, and <span class="refAuthor">P. Grubbs</span>, <span class="refTitle">"Hybrid PQ/T Key Encapsulation Mechanisms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-hybrid-kems-07</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hybrid-kems-07">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hybrid-kems-07</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
