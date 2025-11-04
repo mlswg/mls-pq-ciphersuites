@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 7 May 2026                                                Cisco
-                                                         3 November 2025
+Expires: 8 May 2026                                                Cisco
+                                                         4 November 2025
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 May 2026.
+   This Internet-Draft will expire on 8 May 2026.
 
 Copyright Notice
 
@@ -150,23 +150,23 @@ Table of Contents
    "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number
    assigned to this document:
 
-   +=====+================================================+===+=========+
-   |Value|Name                                            |Rec|Reference|
-   +=====+================================================+===+=========+
-   |TBD1 |MLS_128_MLKEM768-X25519_AES256GCM_SHA384_Ed25519|Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD2 |MLS_128_MLKEM768-P256_AES256GCM_SHA384_P256     |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD3 |MLS_192_MLKEM1024-P384_AES256GCM_SHA384_P384    |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD4 |MLS_128_ML-KEM-768_AES256GCM_SHA384_P256        |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD5 |MLS_192_ML-KEM-1024_AES256GCM_SHA384_P384       |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD6 |MLS_192_ML-KEM-768_AES256GCM_SHA384_MLDSA65     |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
-   |TBD7 |MLS_256_ML-KEM-1024_AES256GCM_SHA512_MLDSA87    |Y  |RFCXXXX  |
-   +-----+------------------------------------------------+---+---------+
+   +=====+===============================================+===+=========+
+   |Value|Name                                           |Rec|Reference|
+   +=====+===============================================+===+=========+
+   |TBD1 |MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519|Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD2 |MLS_128_MLKEM768P256_AES256GCM_SHA384_P256     |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD3 |MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384    |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD4 |MLS_128_MLKEM768_AES256GCM_SHA384_P256         |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD5 |MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD6 |MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD7 |MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
 
                                   Table 1
 
@@ -235,16 +235,16 @@ Table of Contents
    [I-D.ietf-hpke-hpke]
               Barnes, R., Bhargavan, K., Lipp, B., and C. A. Wood,
               "Hybrid Public Key Encryption", Work in Progress,
-              Internet-Draft, draft-ietf-hpke-hpke-01, 24 June 2025,
+              Internet-Draft, draft-ietf-hpke-hpke-02, 4 November 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-hpke-
-              hpke-01>.
+              hpke-02>.
 
    [I-D.ietf-hpke-pq]
               Barnes, R., "Post-Quantum and Post-Quantum/Traditional
               Hybrid Algorithms for HPKE", Work in Progress, Internet-
-              Draft, draft-ietf-hpke-pq-01, 30 June 2025,
+              Draft, draft-ietf-hpke-pq-02, 4 November 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-
-              01>.
+              02>.
 
    [I-D.ietf-tls-mldsa]
               Hollebeek, T., Schmieg, S., and B. Westerbaan, "Use of ML-
