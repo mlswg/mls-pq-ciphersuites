@@ -80,8 +80,8 @@ Following the pattern of base MLS, we define several variations, to allow for us
 * ML-KEM-768 (192-bit security, NIST, pure PQ)
 * ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
-For all the cipher suites defined in this document, we use AES256 GCM {{GCM}} as the Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm;
-HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function;
+For all the cipher suites defined in this document, we use AES-GCM {{GCM}} as the Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm;
+HMAC {{!RFC2104}} with SHA-2 {{SHS}} as the hash function;
 and SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF).
 
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
@@ -95,10 +95,10 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 
 | Value | Name                                            | Rec | Reference |
 |:======|:================================================|:====|:========|
-| TBD1 | MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |
-| TBD2 | MLS_128_MLKEM768P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |
+| TBD1 | MLS_128_MLKEM768X25519_AES128GCM_SHA256_Ed25519 |  Y  | RFCXXXX |
+| TBD2 | MLS_128_MLKEM768P256_AES128GCM_SHA256_P256      |  Y  | RFCXXXX |
 | TBD3 | MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
-| TBD4 | MLS_128_MLKEM768_AES256GCM_SHA384_P256         |  Y  | RFCXXXX |
+| TBD4 | MLS_128_MLKEM768_AES128GCM_SHA256_P256         |  Y  | RFCXXXX |
 | TBD5 | MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |  Y  | RFCXXXX |
 | TBD6 | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |  Y  | RFCXXXX |
 | TBD7 | MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |  Y  | RFCXXXX |
@@ -108,15 +108,15 @@ The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC ha
 
 | Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:=======|:========|:=======|:=======|:=======|:=======================|
-| 0xTBD1 | 0x647a  | 0x0011 | 0x0002 | SHA384 | ed25519                |
-| 0xTBD2 | 0x0050  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| 0xTBD1 | 0x647a  | 0x0011 | 0x0001 | SHA256 | ed25519                |
+| 0xTBD2 | 0x0050  | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
 | 0xTBD3 | 0x0051  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
-| 0xTBD4 | 0x0041  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| 0xTBD4 | 0x0041  | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
 | 0xTBD5 | 0x0042  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
 | 0xTBD6 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
 | 0xTBD7 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
 
-The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA384" refers to the SHA-384 functions defined in [SHS].
+The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256", "SHA384", and "SHA512" refer respectively to the SHA-256, SHA-384, and SHA-512 functions defined in [SHS].
 
 # Security Considerations
 
