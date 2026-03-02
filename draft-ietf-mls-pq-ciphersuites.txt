@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 8 May 2026                                                Cisco
-                                                         4 November 2025
+Expires: 3 September 2026                                          Cisco
+                                                            2 March 2026
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,11 +54,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 May 2026.
+   This Internet-Draft will expire on 3 September 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -132,11 +132,22 @@ Table of Contents
 
    *  ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
-   For all the cipher suites defined in this document, we use AES256 GCM
-   [GCM] as the Authenticated Encryption with Authenticated Data (AEAD)
-   [RFC5116] algorithm; HMAC [RFC2104] with SHA-384 [SHS] as the hash
-   function; and SHAKE256 (Section 3.2 of [FIPS202]) as the Key
-   Derivation Function (KDF).
+   Some parts of the community wish to support the 128-bit security
+   level with the same the Authenticated Encryption with Authenticated
+   Data (AEAD) [RFC5116] algorithm and hash function as used in the
+   traditional cipher suites registered in [RFC9420] (AES128 GCM [GCM]
+   and HMAC [RFC2104] with SHA-256 [SHS]), while other parts of the
+   community would like to follow recent recommendations to transition
+   immediately to AES256 GCM [GCM] and HMAC [RFC2104] with SHA-384
+   [SHS].
+
+   For all of the cipher suites defined in this document, we use
+   SHAKE256 (Section 3.2 of [FIPS202]) as the Key Derivation Function
+   (KDF).  For the cipher suites at the 192-bit or 256-security levels,
+   we use AES256 GCM [GCM] as the AEAD algorithm.  For the cipher suites
+   at the 192-bit security level we use HMAC [RFC2104] with SHA-384,
+   while for the 256-bit security level we use HMAC [RFC2104] with
+   SHA-512 [SHS].
 
    For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use
    the KEMs defined in [I-D.ietf-hpke-pq].  The signature schemes for
@@ -153,19 +164,23 @@ Table of Contents
    +=====+===============================================+===+=========+
    |Value|Name                                           |Rec|Reference|
    +=====+===============================================+===+=========+
-   |TBD1 |MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519|Y  |RFCXXXX  |
+   |TBD1 |MLS_128_MLKEM768X25519_AES128GCM_SHA256_Ed25519|Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD2 |MLS_128_MLKEM768P256_AES256GCM_SHA384_P256     |Y  |RFCXXXX  |
+   |TBD2 |MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519|Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD3 |MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384    |Y  |RFCXXXX  |
+   |TBD3 |MLS_128_MLKEM768P256_AES128GCM_SHA256_P256     |Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD4 |MLS_128_MLKEM768_AES256GCM_SHA384_P256         |Y  |RFCXXXX  |
+   |TBD4 |MLS_128_MLKEM768P256_AES256GCM_SHA384_P256     |Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD5 |MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |Y  |RFCXXXX  |
+   |TBD5 |MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384    |Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD6 |MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |Y  |RFCXXXX  |
+   |TBD6 |MLS_128_MLKEM768_AES256GCM_SHA384_P256         |Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
-   |TBD7 |MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |Y  |RFCXXXX  |
+   |TBD7 |MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD8 |MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |Y  |RFCXXXX  |
+   +-----+-----------------------------------------------+---+---------+
+   |TBD9 |MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |Y  |RFCXXXX  |
    +-----+-----------------------------------------------+---+---------+
 
                                   Table 1
@@ -177,30 +192,34 @@ Table of Contents
     +======+======+========+========+========+========================+
     |Value |KEM   | KDF    | AEAD   | Hash   | Signature              |
     +======+======+========+========+========+========================+
-    |0xTBD1|0x647a| 0x0011 | 0x0002 | SHA384 | ed25519                |
+    |0xTBD1|0x647a| 0x0011 | 0x0001 | SHA256 | ed25519                |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD2|0x0050| 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+    |0xTBD2|0x647a| 0x0011 | 0x0002 | SHA384 | ed25519                |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD3|0x0051| 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+    |0xTBD3|0x0050| 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD4|0x0041| 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+    |0xTBD4|0x0050| 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD5|0x0042| 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+    |0xTBD5|0x0051| 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD6|0x0041| 0x0011 | 0x0002 | SHA384 | mldsa65                |
+    |0xTBD6|0x0041| 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
     +------+------+--------+--------+--------+------------------------+
-    |0xTBD7|0x0042| 0x0011 | 0x0002 | SHA384 | mldsa87                |
+    |0xTBD7|0x0042| 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+    +------+------+--------+--------+--------+------------------------+
+    |0xTBD8|0x0041| 0x0011 | 0x0002 | SHA384 | mldsa65                |
+    +------+------+--------+--------+--------+------------------------+
+    |0xTBD9|0x0042| 0x0011 | 0x0002 | SHA512 | mldsa87                |
     +------+------+--------+--------+--------+------------------------+
 
                                   Table 2
 
    The hash used for the MLS transcript hash is the one referenced in
-   the cipher suite name.  "SHA384" refers to the SHA-384 functions
-   defined in [SHS].
+   the cipher suite name.  "SHA246", "SHA384" and "SHA512" refer to the
+   SHA-256, SHA-384, and SHA-512 functions defined in [SHS].
 
 3.  Security Considerations
 
-   The first five ciphersuites defined in this document combine a post-
+   The first seven ciphersuites defined in this document combine a post-
    quantum (or PQ/T hybrid) KEM with a traditional signature algorithm.
    As such, they are designed to provide confidentiality against quantum
    and classical attacks, but provide authenticity against classical
@@ -240,11 +259,11 @@ Table of Contents
               hpke-02>.
 
    [I-D.ietf-hpke-pq]
-              Barnes, R., "Post-Quantum and Post-Quantum/Traditional
-              Hybrid Algorithms for HPKE", Work in Progress, Internet-
-              Draft, draft-ietf-hpke-pq-02, 4 November 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-
-              02>.
+              Barnes, R. and D. Connolly, "Post-Quantum and Post-
+              Quantum/Traditional Hybrid Algorithms for HPKE", Work in
+              Progress, Internet-Draft, draft-ietf-hpke-pq-03, 6
+              November 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-hpke-pq-03>.
 
    [I-D.ietf-tls-mldsa]
               Hollebeek, T., Schmieg, S., and B. Westerbaan, "Use of ML-
@@ -299,9 +318,9 @@ Table of Contents
    [I-D.irtf-cfrg-hybrid-kems]
               Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
               Encapsulation Mechanisms", Work in Progress, Internet-
-              Draft, draft-irtf-cfrg-hybrid-kems-07, 20 October 2025,
+              Draft, draft-irtf-cfrg-hybrid-kems-08, 27 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-07>.
+              hybrid-kems-08>.
 
 Acknowledgments
 
