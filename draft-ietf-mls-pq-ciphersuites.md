@@ -80,7 +80,7 @@ Following the pattern of base MLS, we define several variations, to allow for us
 * ML-KEM-768 (192-bit security, NIST, pure PQ)
 * ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
-Some parts of the community wish to support the 128-bit security level with the same the Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm and hash function as used in the traditional cipher suites registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
+Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm and hash function as used in the traditional cipher suites registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
 
 For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF).
 For the cipher suites at the 192-bit or 256-security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
