@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 3 September 2026                                          Cisco
-                                                            2 March 2026
+Expires: 4 September 2026                                          Cisco
+                                                            3 March 2026
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 4 September 2026.
 
 Copyright Notice
 
@@ -133,8 +133,8 @@ Table of Contents
    *  ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
    Some parts of the community wish to support the 128-bit security
-   level with the same the Authenticated Encryption with Authenticated
-   Data (AEAD) [RFC5116] algorithm and hash function as used in the
+   level with the same Authenticated Encryption with Authenticated Data
+   (AEAD) [RFC5116] algorithm and hash function as used in the
    traditional cipher suites registered in [RFC9420] (AES128 GCM [GCM]
    and HMAC [RFC2104] with SHA-256 [SHS]), while other parts of the
    community would like to follow recent recommendations to transition
@@ -252,16 +252,16 @@ Table of Contents
    [I-D.ietf-hpke-hpke]
               Barnes, R., Bhargavan, K., Lipp, B., and C. A. Wood,
               "Hybrid Public Key Encryption", Work in Progress,
-              Internet-Draft, draft-ietf-hpke-hpke-02, 4 November 2025,
+              Internet-Draft, draft-ietf-hpke-hpke-03, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-hpke-
-              hpke-02>.
+              hpke-03>.
 
    [I-D.ietf-hpke-pq]
               Barnes, R. and D. Connolly, "Post-Quantum and Post-
               Quantum/Traditional Hybrid Algorithms for HPKE", Work in
-              Progress, Internet-Draft, draft-ietf-hpke-pq-03, 6
-              November 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-hpke-pq-03>.
+              Progress, Internet-Draft, draft-ietf-hpke-pq-04, 2 March
+              2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              hpke-pq-04>.
 
    [I-D.ietf-tls-mldsa]
               Hollebeek, T., Schmieg, S., and B. Westerbaan, "Use of ML-
@@ -316,9 +316,9 @@ Table of Contents
    [I-D.irtf-cfrg-hybrid-kems]
               Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
               Encapsulation Mechanisms", Work in Progress, Internet-
-              Draft, draft-irtf-cfrg-hybrid-kems-08, 27 January 2026,
+              Draft, draft-irtf-cfrg-hybrid-kems-10, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-08>.
+              hybrid-kems-10>.
 
 Acknowledgments
 
