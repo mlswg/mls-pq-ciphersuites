@@ -121,7 +121,7 @@ The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC ha
 | 0xTBD8 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
 | 0xTBD9 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
 
-The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA246" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in [SHS].
+The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in [SHS].
 
 # Security Considerations
 
