@@ -3,7 +3,8 @@ title: ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
 abbrev: MLS Cipher Suites with ML-KEM
 docname: draft-ietf-mls-pq-ciphersuites-latest
 ipr: trust200902
-submissiontype: IETF  # also: "independent", "IAB", or "IRTF"area: art
+submissiontype: IETF  # also: "independent", "IAB", or "IRTF"
+area: art
 workgroup: MLS
 area: sec
 category: info
