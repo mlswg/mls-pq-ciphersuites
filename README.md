@@ -1,11 +1,13 @@
+<!-- regenerate: on (set to off if you edit this file) -->
+
 # ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
 
-This is the working area for the individual Internet-Draft, "ML-KEM and Hybrid Cipher Suites for Messaging Layer Security".
+This is the working area for the IETF [MLS Working Group](https://datatracker.ietf.org/group/mls/documents/) Internet-Draft, "ML-KEM and Hybrid Cipher Suites for Messaging Layer Security".
 
 * [Editor's Copy](https://mlswg.github.io/mls-pq-ciphersuites/#go.draft-ietf-mls-pq-ciphersuites.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-mls-pq-ciphersuites)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-mls-pq-ciphersuites)
-* [Compare Editor's Copy to Individual Draft](https://mlswg.github.io/mls-pq-ciphersuites/#go.draft-ietf-mls-pq-ciphersuites.diff)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-mls-pq-ciphersuites)
+* [Compare Editor's Copy to Working Group Draft](https://mlswg.github.io/mls-pq-ciphersuites/#go.draft-ietf-mls-pq-ciphersuites.diff)
 
 
 ## Contributing
@@ -13,9 +15,8 @@ This is the working area for the individual Internet-Draft, "ML-KEM and Hybrid C
 See the
 [guidelines for contributions](https://github.com/mlswg/mls-pq-ciphersuites/blob/main/CONTRIBUTING.md).
 
-Contributions can be made by creating pull requests.
-The GitHub interface supports creating pull requests using the Edit (✏) button.
-
+The contributing file also has tips on how to make contributions, if you
+don't already know how to do that.
 
 ## Command Line Usage
 
