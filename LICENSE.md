@@ -1,4 +1,4 @@
 # License
 
 See the
-[guidelines for contributions](https://github.com/rohanmahy/mahy-mls-xwing/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/mlswg/mls-pq-ciphersuites/blob/main/CONTRIBUTING.md).
