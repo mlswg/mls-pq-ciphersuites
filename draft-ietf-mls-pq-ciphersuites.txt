@@ -5,8 +5,8 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Informational                              R. L. Barnes
-Expires: 17 September 2026                                         Cisco
-                                                           16 March 2026
+Expires: 19 September 2026                                         Cisco
+                                                           18 March 2026
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 September 2026.
+   This Internet-Draft will expire on 19 September 2026.
 
 Copyright Notice
 
