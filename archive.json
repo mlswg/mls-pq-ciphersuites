@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-27T01:44:49.754262+00:00",
+  "timestamp": "2026-03-19T01:47:21.735640+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -55,16 +55,76 @@
       "id": "I_kwDOLbkcE86_WEne",
       "title": "Should we add ciphersuites with pure PQ KEM + signatures?",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-07T20:56:53Z",
-      "updatedAt": "2025-07-07T20:56:53Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-11-03T17:29:04Z",
+      "closedAt": "2025-11-03T17:29:04Z",
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Incorporated in previous version of the draft.",
+          "createdAt": "2025-11-03T17:29:04Z",
+          "updatedAt": "2025-11-03T17:29:04Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOLbkcE87XDaX_",
+      "title": "Update 128-bit cipher suites to use 128-bit symmetric algorithms",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/11",
+      "state": "CLOSED",
+      "author": "BenS-3",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The impact of Grover's algorithm on symmetric cryptography is known to be limited. In particular, AES-128 is expected to remain secure in the face of CRQCs.\n\nWith that in mind, it makes sense to align the algorithms used in the cipher suites that for a 128-bit security level.\n\nI propose updating TBD1, TBD2, and TBD4, to the following:\n\nTBD1: MLS_128_MLKEM768X25519_AES128GCM_SHA256_Ed25519\nTBD2: MLS_128_MLKEM768P256_AES128GCM_SHA256_P256\nTBD4: MLS_128_MLKEM768_AES128GCM_SHA256_P256\n\nNote that the concerns about CNSA 2.0 compatibility should not apply to TBD4 since CNSA 2.0 mandates use of ML-KEM-1024/ML-DSA-87, hence TBD7 would be the only viable option there.",
+      "createdAt": "2025-11-10T13:11:27Z",
+      "updatedAt": "2026-03-02T13:10:49Z",
+      "closedAt": "2026-03-02T13:10:48Z",
+      "comments": [
+        {
+          "author": "br-hale",
+          "authorAssociation": "NONE",
+          "body": "I would support these alternatives being added if needed for any use cases; however, downgrading all MLKEM768 options to AES128 seems unnecessary and undesirable. ",
+          "createdAt": "2025-11-10T18:33:33Z",
+          "updatedAt": "2025-11-10T18:33:33Z"
+        },
+        {
+          "author": "BenS-3",
+          "authorAssociation": "NONE",
+          "body": "I don't see this as a downgrade. The cipher suites already contain algorithms with a 128-bit security level, so you don't really gain additional security from the use of a larger symmetric key.\n\nIn my view, use of AES256 here would make the keys larger and the standards harder to understand for unclear benefit. Plenty of PQ deployments use AES128 at this security level (e.g. much of the PQ web uses MLKEM768X25519 with AES128). For deployments seeking additional security, there are four other cipher suites with a higher security target.",
+          "createdAt": "2025-11-11T14:29:48Z",
+          "updatedAt": "2025-11-11T14:29:48Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "NONE",
+          "body": "The KEM formerly known as X-Wing target 128-bit security, hence X25519. ML-KEM-768 is a pragmatic hedge against improved lattice cryptanalysis, as ML-KEM-512's margins are quite tight. Combining this with AES-128 and SHA-256 is sensible.",
+          "createdAt": "2025-11-19T16:07:29Z",
+          "updatedAt": "2025-11-19T16:07:29Z"
+        },
+        {
+          "author": "BenS-3",
+          "authorAssociation": "NONE",
+          "body": "There seems to be some appetite (though not universal) both here and on-list to do this, so I've opened PR #12 to address this (and also to encourage more discussion!)",
+          "createdAt": "2025-12-02T10:18:53Z",
+          "updatedAt": "2025-12-02T10:18:53Z"
+        },
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Resolved in #13 . Closing",
+          "createdAt": "2026-03-02T13:10:49Z",
+          "updatedAt": "2026-03-02T13:10:49Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -490,25 +550,33 @@
       "id": "PR_kwDOLbkcE86d0yg_",
       "title": "Add pure PQ ciphersuites with PQ sigs",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-07T20:55:57Z",
-      "updatedAt": "2025-07-22T11:57:49Z",
+      "updatedAt": "2025-11-03T17:28:38Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "108118c080c8e2c4dfbd8a2621c29895876ee9c2",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "mldsa",
       "headRefOid": "6ccaf9ba724eeb869ac0adb623e585e793d5acd2",
-      "closedAt": null,
+      "closedAt": "2025-11-03T17:28:38Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "These changes were already merged in another PR",
+          "createdAt": "2025-11-03T17:28:38Z",
+          "updatedAt": "2025-11-03T17:28:38Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOLbkcE86zQkGa",
@@ -733,6 +801,311 @@
       "mergedBy": "rohanmahy",
       "mergeCommit": {
         "oid": "4cafcc40ade665c08d4145e05e23e7c6a2267da9"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOLbkcE86xPYdx",
+      "title": "Make KEM names consistent with draft-ietf-hpke-pq",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/9",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-03T17:37:37Z",
+      "updatedAt": "2025-11-04T17:34:05Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "b10855f6d517f4438b7605ed70ed0178ab720066",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "hpke-pq",
+      "headRefOid": "825296b6b93d9c7347b4a630a56da97ff1c41085",
+      "closedAt": "2025-11-04T17:34:05Z",
+      "mergedAt": "2025-11-04T17:34:04Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "47cbc29dd81e0680073ae5a856d02860b7518eaf"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE87LtcON",
+          "commit": {
+            "abbreviatedOid": "f1be535"
+          },
+          "author": "bifurcation",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-04T17:09:39Z",
+          "updatedAt": "2025-11-04T17:09:39Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\n| TBD1 | MLS_128_MLKEM768_X25519_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |\r\n| TBD2 | MLS_128_MLKEM768_P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |\r\n| TBD3 | MLS_192_MLKEM1024_P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |\r\n| TBD4 | MLS_128_MLKEM768_AES256GCM_SHA384_P256         |  Y  | RFCXXXX |\r\n| TBD5 | MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |  Y  | RFCXXXX |\r\n| TBD6 | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |  Y  | RFCXXXX |\r\n| TBD7 | MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |  Y  | RFCXXXX |\r\n```\r\n\r\n* No hyphens in names.  People use these as variable names, and it's just confusing.\r\n* Be consistent about \"MLKEM###\" across hybrids and pure.",
+              "createdAt": "2025-11-04T17:09:39Z",
+              "updatedAt": "2025-11-04T17:09:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE87LtrVr",
+          "commit": {
+            "abbreviatedOid": "f1be535"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-04T17:20:23Z",
+          "updatedAt": "2025-11-04T17:20:24Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Underscores are for separating ciphersuite components, they must not be used inside a ciphersuite component.",
+              "createdAt": "2025-11-04T17:20:24Z",
+              "updatedAt": "2025-11-04T17:20:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE87Ltt5W",
+          "commit": {
+            "abbreviatedOid": "f1be535"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-04T17:22:08Z",
+          "updatedAt": "2025-11-04T17:22:09Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Here is an alternative for people ( @bifurcation ) who hate hyphens in labels.\r\n\r\n```suggestion\r\n| TBD1 | MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |\r\n| TBD2 | MLS_128_MLKEM768P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |\r\n| TBD3 | MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |\r\n| TBD4 | MLS_128_MLKEM768_AES256GCM_SHA384_P256         |  Y  | RFCXXXX |\r\n| TBD5 | MLS_192_MLKEM1024_AES256GCM_SHA384_P384        |  Y  | RFCXXXX |\r\n| TBD6 | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65      |  Y  | RFCXXXX |\r\n| TBD7 | MLS_256_MLKEM1024_AES256GCM_SHA512_MLDSA87     |  Y  | RFCXXXX |\r\n```",
+              "createdAt": "2025-11-04T17:22:08Z",
+              "updatedAt": "2025-11-04T17:23:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLbkcE87LtzuK",
+          "commit": {
+            "abbreviatedOid": "f1be535"
+          },
+          "author": "bifurcation",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-04T17:26:16Z",
+          "updatedAt": "2025-11-04T17:26:17Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Sure, I can live with that.",
+              "createdAt": "2025-11-04T17:26:16Z",
+              "updatedAt": "2025-11-04T17:26:17Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOLbkcE86xeV-8",
+      "title": "Ready to submit draft-ietf-mls-pq-ciphersuites-01",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/10",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-04T17:38:51Z",
+      "updatedAt": "2025-11-04T17:39:03Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "47cbc29dd81e0680073ae5a856d02860b7518eaf",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "submit-01",
+      "headRefOid": "762b2c30d99d91a3eb47bbfb3504d986c643784f",
+      "closedAt": "2025-11-04T17:39:03Z",
+      "mergedAt": "2025-11-04T17:39:03Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "681f4b7bd622a89bed5be578b794ac068665092d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOLbkcE862kIPC",
+      "title": "Align algorithm security levels within ciphersuites",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/12",
+      "state": "CLOSED",
+      "author": "BenS-3",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #11",
+      "createdAt": "2025-12-02T10:16:09Z",
+      "updatedAt": "2026-03-02T13:10:25Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "681f4b7bd622a89bed5be578b794ac068665092d",
+      "headRepository": "BenS-3/mls-pq-ciphersuites",
+      "headRefName": "bens/align-security-levels",
+      "headRefOid": "74931be68b75566e9ddf5e0b8e49af8331b5aa38",
+      "closedAt": "2026-03-02T13:10:25Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing in favor of #12 which offers both AES128/SHA256 and AES256/SHA384 options for Ed25519 and P256.",
+          "createdAt": "2026-03-02T13:10:25Z",
+          "updatedAt": "2026-03-02T13:10:25Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOLbkcE87HU8xe",
+      "title": "Include both AES128/AES256 and SHA256/SHA384 variants at the 128-bit \u2026",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/13",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Include both AES128/AES256 and SHA256/SHA384 variants at the 128-bit security level",
+      "createdAt": "2026-03-02T13:07:28Z",
+      "updatedAt": "2026-03-02T13:09:36Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "681f4b7bd622a89bed5be578b794ac068665092d",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "128-bit-option",
+      "headRefOid": "a9a51040ced604453887670ed3564898a05415a5",
+      "closedAt": "2026-03-02T13:09:36Z",
+      "mergedAt": "2026-03-02T13:09:36Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "449bcafe7b5c378093f4d760f3d79df7e8a60621"
+      },
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This PR is intended to replace PR#12 and close Issue #11 ",
+          "createdAt": "2026-03-02T13:09:28Z",
+          "updatedAt": "2026-03-02T13:09:28Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOLbkcE87HYIcI",
+      "title": "Fix Rohan's mistake: we had consensus for SHA384 at 256-bit security \u2026",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/14",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026level",
+      "createdAt": "2026-03-02T16:32:54Z",
+      "updatedAt": "2026-03-02T16:41:16Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "6f6d9e2faf198b4d1615dfb7a2ae046c50bb9b29",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "sha384",
+      "headRefOid": "39a91c356508542614562d43d1c7481f1b246604",
+      "closedAt": "2026-03-02T16:41:16Z",
+      "mergedAt": "2026-03-02T16:41:16Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "f723a64312197c3cc745b81e2545466fdd83225f"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOLbkcE87Hj7-R",
+      "title": "Remove extraneous \"the\"",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/15",
+      "state": "MERGED",
+      "author": "istankovic",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-03T10:01:07Z",
+      "updatedAt": "2026-03-03T13:10:49Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "e72de243c572fd6a5700b3169808297e7945de03",
+      "headRepository": "istankovic/mls-pq-ciphersuites",
+      "headRefName": "main",
+      "headRefOid": "d5607281d156a00881203ac3bfe2b656b2068bae",
+      "closedAt": "2026-03-03T13:10:49Z",
+      "mergedAt": "2026-03-03T13:10:49Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "90b57b58476f94dc0e1d2457fe84470f43852737"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE87naha-",
+          "commit": {
+            "abbreviatedOid": "d560728"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-03T13:09:12Z",
+          "updatedAt": "2026-03-03T13:09:12Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOLbkcE87LsfyI",
+      "title": "Submit 04",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/16",
+      "state": "MERGED",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-18T23:25:07Z",
+      "updatedAt": "2026-03-18T23:25:58Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "1baa1b9be2908976bb423a1d8ac5f414dc16c422",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "submit-04",
+      "headRefOid": "6aa1dc07806ad79a6ee588d57bc8b5975f117b6d",
+      "closedAt": "2026-03-18T23:25:58Z",
+      "mergedAt": "2026-03-18T23:25:58Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "92854cfafb4850161df7fcb2432a1f7ef656d9a9"
       },
       "comments": [],
       "reviews": []
