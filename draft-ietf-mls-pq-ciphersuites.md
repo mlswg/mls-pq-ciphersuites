@@ -108,7 +108,7 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 | TBD9  | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |
 
 
-The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!RFC8446}} is as follows:
+The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!I-D.ietf-tls-rfc8446bis}} is as follows:
 
 | Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:=======|:========|:=======|:=======|:=======|:=======================|
@@ -122,7 +122,7 @@ The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC ha
 | 0xTBD8 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
 | 0xTBD9 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
 
-The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in [SHS].
+The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in {{SHS}}.
 
 # Security Considerations
 
@@ -131,7 +131,7 @@ The first seven ciphersuites defined in this document combine a post-quantum (or
 The last two cipher suites also use post-quantum signature algorithms.
 
 For security considerations related to the KEMs used in this document, please see the documents that define those KEMs {{!I-D.ietf-hpke-pq}} and {{?I-D.irtf-cfrg-hybrid-kems}}.
-For security considerations related to the post-quantum signature algorithms used in this document, please see {{!I-D.ietf-tls-mldsa}} and {{?I-D.ietf-lamps-dilithium-certificates}}.
+For security considerations related to the post-quantum signature algorithms used in this document, please see {{!I-D.ietf-tls-mldsa}} and {{?RFC9881}}.
 
 --- back
 
