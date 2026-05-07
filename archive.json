@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-19T01:47:21.735640+00:00",
+  "timestamp": "2026-05-07T02:15:14.067784+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "needs-consensus",
+      "description": "",
+      "color": "9B3F85"
     }
   ],
   "issues": [
@@ -125,6 +130,24 @@
           "updatedAt": "2026-03-02T13:10:49Z"
         }
       ]
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOLbkcE88AAAABBeSNCQ",
+      "title": "Request to add MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44 ciphersuite",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/19",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "needs-consensus"
+      ],
+      "body": "Soatak Dreamweaver requested this ciphersuite on the MLS mailing list [1].\n\n[1] https://mailarchive.ietf.org/arch/msg/mls/goy5Lzp4Sqht5fUSQTXJuzpR9hU/\n",
+      "createdAt": "2026-05-06T19:24:35Z",
+      "updatedAt": "2026-05-06T19:25:55Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -1108,6 +1131,84 @@
         "oid": "92854cfafb4850161df7fcb2432a1f7ef656d9a9"
       },
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOLbkcE87YhhT7",
+      "title": "Ref Updates",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/17",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Reviewed the references - updated some. Change RFC 8446 to -rfc8446bis; -rfc8446bis is in AUTH48 so should come out before this.",
+      "createdAt": "2026-05-05T19:35:25Z",
+      "updatedAt": "2026-05-06T19:00:33Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "0684ba1f3bf583e071ec6ed17e7e674ede19f1b0",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "seanturner-wglc-01",
+      "headRefOid": "3de27dd53e98b10f668cafb16a1a78e7a0640109",
+      "closedAt": "2026-05-06T19:00:32Z",
+      "mergedAt": "2026-05-06T19:00:32Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "326aabf46d0a7e4d5e71ded2dac0b4a312fb4971"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE878pXkA",
+          "commit": {
+            "abbreviatedOid": "3de27dd"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-06T19:00:25Z",
+          "updatedAt": "2026-05-06T19:00:25Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOLbkcE87YpfKw",
+      "title": "Add additional ciphersuite",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/18",
+      "state": "OPEN",
+      "author": "kkohbrok",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [
+        "needs-consensus"
+      ],
+      "body": "This PR corresponds to my request on the MLS WG mailing list: https://mailarchive.ietf.org/arch/msg/mls/Nj5nXBGcNSlqvY6cQYTP1nn2eBs/",
+      "createdAt": "2026-05-06T05:56:44Z",
+      "updatedAt": "2026-05-06T19:25:41Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "0684ba1f3bf583e071ec6ed17e7e674ede19f1b0",
+      "headRepository": "kkohbrok/mls-pq-ciphersuites",
+      "headRefName": "konrad/new_ciphersuite",
+      "headRefOid": "f892455b19707d1f36d98194918220c7a10adb10",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm going to wait until after the WLGC is over, and then ask the WGLC for consensus on what to do with this ciphersuite and the one proposed in Issue #19",
+          "createdAt": "2026-05-06T19:25:02Z",
+          "updatedAt": "2026-05-06T19:25:02Z"
+        }
+      ],
       "reviews": []
     }
   ]
