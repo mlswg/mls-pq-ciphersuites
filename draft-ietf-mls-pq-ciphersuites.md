@@ -37,7 +37,7 @@ author:
     email: rohan.ietf@gmail.com
  -  ins: R.L. Barnes
     name: Richard L. Barnes
-    organization: Cisco
+    organization:
     email: rlb@ipv.sx
 
 
@@ -73,21 +73,27 @@ The cipher suites with post-quantum signatures use only post-quantum KEMs.
 
 Following the pattern of base MLS, we define several variations, to allow for users that prefer to only use NIST-approved cryptography, users that prefer a higher security level, and users that prefer a PQ/traditional hybrid KEM over pure ML-KEM:
 
-* ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid)
-* ML-KEM-768 + P-256 (128-bit security, NIST, PQ/T hybrid)
-* ML-KEM-1024 + P-384 (192-bit security, NIST, PQ/T hybrid)
+* ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid KEM)
+* ML-KEM-768 + P-256 (128-bit security, NIST, PQ/T hybrid KEM)
+* ML-KEM-1024 + P-384 (192-bit security, NIST, PQ/T hybrid KEM)
+* ML-KEM-768 (128-bit security, Non-NIST, pure PQ KEM)
 * ML-KEM-768 (128-bit security, NIST, pure PQ KEM)
 * ML-KEM-1024 (192-bit security, NIST, pure PQ KEM)
+* ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid KEM + PQ signature)
 * ML-KEM-768 (192-bit security, NIST, pure PQ)
 * ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
-Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithm and hash function as used in the traditional cipher suites registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
+Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithms and hash function as used in the default cipher suite registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
 
 For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF).
-For the cipher suites at the 192-bit or 256-security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
+
+For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
+
+Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 {{!RFC8439}} AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
+The choice of ChaCha20-Poly130 was selected for acceptable performance when implemented entirely in software.
 
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
-The signature schemes for ML-DSA-65 and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
+The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
 
 # IANA Considerations
 
@@ -102,33 +108,37 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 | TBD3  | MLS_128_MLKEM768P256_AES128GCM_SHA256_P256      |  Y  | RFCXXXX |
 | TBD4  | MLS_128_MLKEM768P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |
 | TBD5  | MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |
-| TBD6  | MLS_128_MLKEM768_AES256GCM_SHA384_P256          |  Y  | RFCXXXX |
-| TBD7  | MLS_192_MLKEM1024_AES256GCM_SHA384_P384         |  Y  | RFCXXXX |
-| TBD8  | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65       |  Y  | RFCXXXX |
-| TBD9  | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |
+| TBD6  | MLS_128_MLKEM768_AES256GCM_SHA384_Ed25519       |  Y  | RFCXXXX |
+| TBD7  | MLS_128_MLKEM768_AES256GCM_SHA384_P256          |  Y  | RFCXXXX |
+| TBD8  | MLS_192_MLKEM1024_AES256GCM_SHA384_P384         |  Y  | RFCXXXX |
+| TBD9  | MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44 | Y | RFCXXXX |
+| TBD10 | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65       |  Y  | RFCXXXX |
+| TBD11 | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |
 
 
 The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!I-D.ietf-tls-rfc8446bis}} is as follows:
 
-| Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
-|:=======|:========|:=======|:=======|:=======|:=======================|
-| 0xTBD1 | 0x647a  | 0x0011 | 0x0001 | SHA256 | ed25519                |
-| 0xTBD2 | 0x647a  | 0x0011 | 0x0002 | SHA384 | ed25519                |
-| 0xTBD3 | 0x0050  | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
-| 0xTBD4 | 0x0050  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
-| 0xTBD5 | 0x0051  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
-| 0xTBD6 | 0x0041  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
-| 0xTBD7 | 0x0042  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
-| 0xTBD8 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
-| 0xTBD9 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
+| Value | KEM     | KDF    | AEAD   | Hash   | Signature              |
+|:======|:========|:=======|:=======|:=======|:=======================|
+| TBD1  | 0x647a  | 0x0011 | 0x0001 | SHA256 | ed25519                |
+| TBD2  | 0x647a  | 0x0011 | 0x0002 | SHA384 | ed25519                |
+| TBD3  | 0x0050  | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
+| TBD4  | 0x0050  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| TBD5  | 0x0051  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+| TBD6  | 0x0041  | 0x0011 | 0x0002 | SHA384 | ed25519                |
+| TBD7  | 0x0041  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| TBD8  | 0x0042  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+| TBD9  | 0x647a  | 0x0011 | 0x0003 | SHA384 | mldsa44                |
+| TBD10 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
+| TBD11 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
 
 The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in {{SHS}}.
 
 # Security Considerations
 
-The first seven ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.
+The first eight ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.
 
-The last two cipher suites also use post-quantum signature algorithms.
+The last three cipher suites also use post-quantum signature algorithms.
 
 For security considerations related to the KEMs used in this document, please see the documents that define those KEMs {{!I-D.ietf-hpke-pq}} and {{?I-D.irtf-cfrg-hybrid-kems}}.
 For security considerations related to the post-quantum signature algorithms used in this document, please see {{!I-D.ietf-tls-mldsa}} and {{?RFC9881}}.
