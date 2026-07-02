@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-07T02:15:14.067784+00:00",
+  "timestamp": "2026-07-02T02:40:57.538116+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -1189,13 +1189,13 @@
       ],
       "body": "This PR corresponds to my request on the MLS WG mailing list: https://mailarchive.ietf.org/arch/msg/mls/Nj5nXBGcNSlqvY6cQYTP1nn2eBs/",
       "createdAt": "2026-05-06T05:56:44Z",
-      "updatedAt": "2026-05-06T19:25:41Z",
+      "updatedAt": "2026-07-01T16:02:47Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "0684ba1f3bf583e071ec6ed17e7e674ede19f1b0",
       "headRepository": "kkohbrok/mls-pq-ciphersuites",
       "headRefName": "konrad/new_ciphersuite",
-      "headRefOid": "f892455b19707d1f36d98194918220c7a10adb10",
+      "headRefOid": "395a7c8d4a53e94534fe447e922cf5ceca09d957",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1207,9 +1207,77 @@
           "body": "I'm going to wait until after the WLGC is over, and then ask the WGLC for consensus on what to do with this ciphersuite and the one proposed in Issue #19",
           "createdAt": "2026-05-06T19:25:02Z",
           "updatedAt": "2026-05-06T19:25:02Z"
+        },
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I suggest replacing this with #20 ",
+          "createdAt": "2026-07-01T16:02:47Z",
+          "updatedAt": "2026-07-01T16:02:47Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE88AAAABEsaH9Q",
+          "commit": {
+            "abbreviatedOid": "f892455"
+          },
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-07-01T14:25:19Z",
+          "updatedAt": "2026-07-01T14:25:20Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "```suggestion\n| TBD01 | MLS_128_MLKEM768X25519_AES128GCM_SHA256_Ed25519 |  Y  | RFCXXXX |\n| TBD02 | MLS_128_MLKEM768X25519_AES256GCM_SHA384_Ed25519 |  Y  | RFCXXXX |\n| TBD03 | MLS_128_MLKEM768P256_AES128GCM_SHA256_P256      |  Y  | RFCXXXX |\n| TBD04 | MLS_128_MLKEM768P256_AES256GCM_SHA384_P256      |  Y  | RFCXXXX |\n| TBD05 | MLS_192_MLKEM1024P384_AES256GCM_SHA384_P384     |  Y  | RFCXXXX |\n| TBD06 | MLS_128_MLKEM768_AES256GCM_SHA384_Ed25519       |  Y  | RFCXXXX |\n| TBD07 | MLS_128_MLKEM768_AES256GCM_SHA384_P256          |  Y  | RFCXXXX |\n| TBD08 | MLS_192_MLKEM1024_AES256GCM_SHA384_P384         |  Y  | RFCXXXX |\n| TBD09 | MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65       |  Y  | RFCXXXX |\n| TBD10 | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |\n```",
+              "createdAt": "2026-07-01T14:25:20Z",
+              "updatedAt": "2026-07-01T14:25:20Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOLbkcE87swco8",
+      "title": "Add 2 more cipher suites",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/20",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add:\r\n- MLS_128_MLKEM768_AES256GCM_SHA384_Ed25519 and\r\n- MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44\r\n\r\ncipher suites\r\n\r\nCloses #19  and  Replaces #18 \r\n\r\nCc: @kkohbrok\r\n",
+      "createdAt": "2026-07-01T16:01:38Z",
+      "updatedAt": "2026-07-01T16:26:33Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "fbb352efdca10717fe8b19a2e93d63bfe49b520e",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "2more",
+      "headRefOid": "e69b16bde16d90c6d0d52449d9ef2125d552dedb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE88AAAABEtaodQ",
+          "commit": {
+            "abbreviatedOid": "e69b16b"
+          },
+          "author": "soatok",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-01T16:26:33Z",
+          "updatedAt": "2026-07-01T16:26:33Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
