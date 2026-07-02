@@ -1058,7 +1058,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mahy &amp; Barnes</td>
-<td class="center">Expires 2 January 2027</td>
+<td class="center">Expires 3 January 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1071,12 +1071,12 @@ svg {
 <dd class="internet-draft">draft-ietf-mls-pq-ciphersuites-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-07-01" class="published">1 July 2026</time>
+<time datetime="2026-07-02" class="published">2 July 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-01-02">2 January 2027</time></dd>
+<dd class="expires"><time datetime="2027-01-03">3 January 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1084,7 +1084,6 @@ svg {
 </div>
 <div class="author">
       <div class="author-name">R. L. Barnes</div>
-<div class="org">Cisco</div>
 </div>
 </dd>
 </dl>
@@ -1130,7 +1129,7 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1210,32 +1209,40 @@ The cipher suites with post-quantum signatures use only post-quantum KEMs.<a hre
 <p id="section-1-5">Following the pattern of base MLS, we define several variations, to allow for users that prefer to only use NIST-approved cryptography, users that prefer a higher security level, and users that prefer a PQ/traditional hybrid KEM over pure ML-KEM:<a href="#section-1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-6.1">
-          <p id="section-1-6.1.1">ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid)<a href="#section-1-6.1.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.1.1">ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid KEM)<a href="#section-1-6.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.2">
-          <p id="section-1-6.2.1">ML-KEM-768 + P-256 (128-bit security, NIST, PQ/T hybrid)<a href="#section-1-6.2.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.2.1">ML-KEM-768 + P-256 (128-bit security, NIST, PQ/T hybrid KEM)<a href="#section-1-6.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.3">
-          <p id="section-1-6.3.1">ML-KEM-1024 + P-384 (192-bit security, NIST, PQ/T hybrid)<a href="#section-1-6.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.3.1">ML-KEM-1024 + P-384 (192-bit security, NIST, PQ/T hybrid KEM)<a href="#section-1-6.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.4">
-          <p id="section-1-6.4.1">ML-KEM-768 (128-bit security, NIST, pure PQ KEM)<a href="#section-1-6.4.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.4.1">ML-KEM-768 (128-bit security, Non-NIST, pure PQ KEM)<a href="#section-1-6.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.5">
-          <p id="section-1-6.5.1">ML-KEM-1024 (192-bit security, NIST, pure PQ KEM)<a href="#section-1-6.5.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.5.1">ML-KEM-768 (128-bit security, NIST, pure PQ KEM)<a href="#section-1-6.5.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.6">
-          <p id="section-1-6.6.1">ML-KEM-768 (192-bit security, NIST, pure PQ)<a href="#section-1-6.6.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.6.1">ML-KEM-1024 (192-bit security, NIST, pure PQ KEM)<a href="#section-1-6.6.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-6.7">
-          <p id="section-1-6.7.1">ML-KEM-1024 (256-bit security, NIST, pure PQ)<a href="#section-1-6.7.1" class="pilcrow">¶</a></p>
+          <p id="section-1-6.7.1">ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid KEM + PQ signature)<a href="#section-1-6.7.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-6.8">
+          <p id="section-1-6.8.1">ML-KEM-768 (192-bit security, NIST, pure PQ)<a href="#section-1-6.8.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-6.9">
+          <p id="section-1-6.9.1">ML-KEM-1024 (256-bit security, NIST, pure PQ)<a href="#section-1-6.9.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-7">Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> algorithm and hash function as used in the traditional cipher suites registered in <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span> (AES128 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-256 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>.<a href="#section-1-7" class="pilcrow">¶</a></p>
-<p id="section-1-8">For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>) as the Key Derivation Function (KDF).
-For the cipher suites at the 192-bit or 256-security levels, we use AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> as the AEAD algorithm, and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span> as the hash function.<a href="#section-1-8" class="pilcrow">¶</a></p>
-<p id="section-1-9">For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>.
-The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> are defined in <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span>.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-7">Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> algorithms and hash function as used in the default cipher suite registered in <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span> (AES128 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-256 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>) as the Key Derivation Function (KDF).<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9">For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> as the AEAD algorithm, and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span> as the hash function.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 <span>[<a href="#RFC8439" class="cite xref">RFC8439</a>]</span> AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
+The choice of ChaCha20-Poly130 was selected for acceptable performance when implemented entirely in software.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>.
+The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> are defined in <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span>.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1292,24 +1299,36 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD6</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768_AES256GCM_SHA384_P256</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768_AES256GCM_SHA384_Ed25519</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD7</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM1024_AES256GCM_SHA384_P384</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768_AES256GCM_SHA384_P256</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD8</td>
-              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM1024_AES256GCM_SHA384_P384</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">TBD9</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44</td>
+              <td class="text-left" rowspan="1" colspan="1">Y</td>
+              <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD10</td>
+              <td class="text-left" rowspan="1" colspan="1">MLS_192_MLKEM768_AES256GCM_SHA384_MLDSA65</td>
+              <td class="text-left" rowspan="1" colspan="1">Y</td>
+              <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD11</td>
               <td class="text-left" rowspan="1" colspan="1">MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87</td>
               <td class="text-left" rowspan="1" colspan="1">Y</td>
               <td class="text-left" rowspan="1" colspan="1">RFCXXXX</td>
@@ -1331,7 +1350,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
           </thead>
           <tbody>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD1</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD1</td>
               <td class="text-left" rowspan="1" colspan="1">0x647a</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0001</td>
@@ -1339,7 +1358,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ed25519</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD2</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD2</td>
               <td class="text-left" rowspan="1" colspan="1">0x647a</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1347,7 +1366,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ed25519</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD3</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD3</td>
               <td class="text-left" rowspan="1" colspan="1">0x0050</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0001</td>
@@ -1355,7 +1374,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ecdsa_secp256r1_sha256</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD4</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD4</td>
               <td class="text-left" rowspan="1" colspan="1">0x0050</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1363,7 +1382,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ecdsa_secp256r1_sha256</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD5</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD5</td>
               <td class="text-left" rowspan="1" colspan="1">0x0051</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1371,7 +1390,15 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ecdsa_secp384r1_sha384</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD6</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD6</td>
+              <td class="text-left" rowspan="1" colspan="1">0x0041</td>
+              <td class="text-left" rowspan="1" colspan="1">0x0011</td>
+              <td class="text-left" rowspan="1" colspan="1">0x0002</td>
+              <td class="text-left" rowspan="1" colspan="1">SHA384</td>
+              <td class="text-left" rowspan="1" colspan="1">ed25519</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD7</td>
               <td class="text-left" rowspan="1" colspan="1">0x0041</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1379,7 +1406,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ecdsa_secp256r1_sha256</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD7</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD8</td>
               <td class="text-left" rowspan="1" colspan="1">0x0042</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1387,7 +1414,15 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">ecdsa_secp384r1_sha384</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD8</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD9</td>
+              <td class="text-left" rowspan="1" colspan="1">0x647a</td>
+              <td class="text-left" rowspan="1" colspan="1">0x0011</td>
+              <td class="text-left" rowspan="1" colspan="1">0x0003</td>
+              <td class="text-left" rowspan="1" colspan="1">SHA384</td>
+              <td class="text-left" rowspan="1" colspan="1">mldsa44</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD10</td>
               <td class="text-left" rowspan="1" colspan="1">0x0041</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1395,7 +1430,7 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
               <td class="text-left" rowspan="1" colspan="1">mldsa65</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">0xTBD9</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD11</td>
               <td class="text-left" rowspan="1" colspan="1">0x0042</td>
               <td class="text-left" rowspan="1" colspan="1">0x0011</td>
               <td class="text-left" rowspan="1" colspan="1">0x0002</td>
@@ -1414,8 +1449,8 @@ The signature schemes for ML-DSA-65 and ML-DSA-87 <span>[<a href="#MLDSA" class=
       <h2 id="name-security-considerations">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-3-1">The first seven ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The last two cipher suites also use post-quantum signature algorithms.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-1">The first eight ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The last three cipher suites also use post-quantum signature algorithms.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">For security considerations related to the KEMs used in this document, please see the documents that define those KEMs <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span> and <span>[<a href="#I-D.irtf-cfrg-hybrid-kems" class="cite xref">I-D.irtf-cfrg-hybrid-kems</a>]</span>.
 For security considerations related to the post-quantum signature algorithms used in this document, please see <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span> and <span>[<a href="#RFC9881" class="cite xref">RFC9881</a>]</span>.<a href="#section-3-3" class="pilcrow">¶</a></p>
 </section>
@@ -1471,6 +1506,10 @@ For security considerations related to the post-quantum signature algorithms use
         <dd>
 <span class="refAuthor">McGrew, D.</span>, <span class="refTitle">"An Interface and Algorithms for Authenticated Encryption"</span>, <span class="seriesInfo">RFC 5116</span>, <span class="seriesInfo">DOI 10.17487/RFC5116</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5116">https://www.rfc-editor.org/rfc/rfc5116</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8439">[RFC8439]</dt>
+        <dd>
+<span class="refAuthor">Nir, Y.</span> and <span class="refAuthor">A. Langley</span>, <span class="refTitle">"ChaCha20 and Poly1305 for IETF Protocols"</span>, <span class="seriesInfo">RFC 8439</span>, <span class="seriesInfo">DOI 10.17487/RFC8439</span>, <time datetime="2018-06" class="refDate">June 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8439">https://www.rfc-editor.org/rfc/rfc8439</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9420">[RFC9420]</dt>
         <dd>
 <span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Beurdouche, B.</span>, <span class="refAuthor">Robert, R.</span>, <span class="refAuthor">Millican, J.</span>, <span class="refAuthor">Omara, E.</span>, and <span class="refAuthor">K. Cohn-Gordon</span>, <span class="refTitle">"The Messaging Layer Security (MLS) Protocol"</span>, <span class="seriesInfo">RFC 9420</span>, <span class="seriesInfo">DOI 10.17487/RFC9420</span>, <time datetime="2023-07" class="refDate">July 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9420">https://www.rfc-editor.org/rfc/rfc9420</a>&gt;</span>. </dd>
@@ -1524,7 +1563,6 @@ Thanks also to Joël Alwen, Marta Mularczyk, and Britta Hale.<a href="#appendix-
 </address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Richard L. Barnes</span></div>
-<div dir="auto" class="left"><span class="org">Cisco</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:rlb@ipv.sx" class="email">rlb@ipv.sx</a>
