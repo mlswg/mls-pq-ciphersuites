@@ -7,7 +7,7 @@ submissiontype: IETF  # also: "independent", "IAB", or "IRTF"
 area: art
 workgroup: MLS
 area: sec
-category: info
+category: std
 keyword:
  - ML-KEM
  - Kyber
