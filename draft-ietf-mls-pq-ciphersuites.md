@@ -67,7 +67,9 @@ In response to these concerns, the cryptographic community has defined "post-qua
 Symmetric algorithms can be made post-quantum secure simply by using longer keys and hashes.
 For asymmetric operations such as KEMs and signatures, entirely new algorithms are needed.
 
-In this document, we define ciphersuites that use the post-quantum secure Module-Lattice-Based KEM (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{MLDSA}} post-quantum signature algorithms.
+# New Cipher Suites
+
+In this document, we define cipher suites that use the post-quantum secure Module-Lattice-Based KEM (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{MLDSA}} post-quantum signature algorithms.
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
 The cipher suites with post-quantum signatures use only post-quantum KEMs.
 
@@ -136,7 +138,7 @@ The hash used for the MLS transcript hash is the one referenced in the cipher su
 
 # Security Considerations
 
-The first eight ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.
+The first eight cipher suites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.
 
 The last three cipher suites also use post-quantum signature algorithms.
 
