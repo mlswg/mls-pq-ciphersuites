@@ -4,7 +4,6 @@ abbrev: MLS Cipher Suites with ML-KEM
 docname: draft-ietf-mls-pq-ciphersuites-latest
 ipr: trust200902
 submissiontype: IETF  # also: "independent", "IAB", or "IRTF"
-area: art
 workgroup: MLS
 area: sec
 category: std
@@ -87,8 +86,6 @@ Following the pattern of base MLS, we define several variations, to allow for us
 
 Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithms and hash function as used in the default cipher suite registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
 
-For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF).
-
 For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
 
 Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 {{!RFC8439}} AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
@@ -96,6 +93,21 @@ The choice of ChaCha20-Poly130 was selected for acceptable performance when impl
 
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
 The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
+
+For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF) (see {{one-stage}}).
+
+# One shot KDFs in MLS {#one-stage}
+
+The MLS Key Schedule {{Section 8 of !RFC9420}} relies heavily on the Hybrid Public Key Encryption (HPKE) {{!I-D.ietf-hpke-hpke}} `Extract` and `Expand` functions.
+Unfortunately, these functions are only defined in HPKE for "two-stage" Key Derivation Functions (KDFs).
+As SHAKE256 is a "one-stage" KDF, we define these two functions below for one-stage KDFs as follows:
+
+~~~
+Extract(secret, salt) = Derive(concat(salt, secret), KDF.Nh)
+
+Expand(secret, label, length) = Derive(concat(label, secret), length)
+~~~
+
 
 # IANA Considerations
 
