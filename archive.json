@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-02T02:40:57.538116+00:00",
+  "timestamp": "2026-07-05T02:30:29.552921+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -136,7 +136,7 @@
       "id": "I_kwDOLbkcE88AAAABBeSNCQ",
       "title": "Request to add MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44 ciphersuite",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/19",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -145,8 +145,8 @@
       ],
       "body": "Soatak Dreamweaver requested this ciphersuite on the MLS mailing list [1].\n\n[1] https://mailarchive.ietf.org/arch/msg/mls/goy5Lzp4Sqht5fUSQTXJuzpR9hU/\n",
       "createdAt": "2026-05-06T19:24:35Z",
-      "updatedAt": "2026-05-06T19:25:55Z",
-      "closedAt": null,
+      "updatedAt": "2026-07-02T19:41:29Z",
+      "closedAt": "2026-07-02T19:41:29Z",
       "comments": []
     }
   ],
@@ -1180,7 +1180,7 @@
       "id": "PR_kwDOLbkcE87YpfKw",
       "title": "Add additional ciphersuite",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "kkohbrok",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1189,14 +1189,14 @@
       ],
       "body": "This PR corresponds to my request on the MLS WG mailing list: https://mailarchive.ietf.org/arch/msg/mls/Nj5nXBGcNSlqvY6cQYTP1nn2eBs/",
       "createdAt": "2026-05-06T05:56:44Z",
-      "updatedAt": "2026-07-01T16:02:47Z",
+      "updatedAt": "2026-07-02T05:55:38Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "0684ba1f3bf583e071ec6ed17e7e674ede19f1b0",
       "headRepository": "kkohbrok/mls-pq-ciphersuites",
       "headRefName": "konrad/new_ciphersuite",
       "headRefOid": "395a7c8d4a53e94534fe447e922cf5ceca09d957",
-      "closedAt": null,
+      "closedAt": "2026-07-02T05:55:38Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -1244,24 +1244,26 @@
       "id": "PR_kwDOLbkcE87swco8",
       "title": "Add 2 more cipher suites",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/20",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Add:\r\n- MLS_128_MLKEM768_AES256GCM_SHA384_Ed25519 and\r\n- MLS_128_MLKEM768X25519_CHACHA20POLY1305_SHA384_MLDSA44\r\n\r\ncipher suites\r\n\r\nCloses #19  and  Replaces #18 \r\n\r\nCc: @kkohbrok\r\n",
       "createdAt": "2026-07-01T16:01:38Z",
-      "updatedAt": "2026-07-01T16:26:33Z",
+      "updatedAt": "2026-07-02T19:41:29Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "fbb352efdca10717fe8b19a2e93d63bfe49b520e",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "2more",
       "headRefOid": "e69b16bde16d90c6d0d52449d9ef2125d552dedb",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-07-02T19:41:28Z",
+      "mergedAt": "2026-07-02T19:41:28Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "9eaa08134c3c90f3e3f48cd79053c1547128e2e4"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1276,8 +1278,60 @@
           "createdAt": "2026-07-01T16:26:33Z",
           "updatedAt": "2026-07-01T16:26:33Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOLbkcE88AAAABExFB7A",
+          "commit": {
+            "abbreviatedOid": "e69b16b"
+          },
+          "author": "kkohbrok",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-02T05:55:14Z",
+          "updatedAt": "2026-07-02T05:55:14Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLbkcE88AAAABE2XDCA",
+          "commit": {
+            "abbreviatedOid": "e69b16b"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-02T18:54:32Z",
+          "updatedAt": "2026-07-02T18:54:32Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOLbkcE87t2tZ5",
+      "title": "Define Extract and Expand for one-stage KDFs",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/21",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-07-04T12:23:06Z",
+      "updatedAt": "2026-07-04T12:24:33Z",
+      "baseRepository": "mlswg/mls-pq-ciphersuites",
+      "baseRefName": "main",
+      "baseRefOid": "4a3e8a75f7f46868889c71eb9090c102d6de6bdd",
+      "headRepository": "mlswg/mls-pq-ciphersuites",
+      "headRefName": "oneshot-kdf",
+      "headRefOid": "5df583b168e7dc4a2201d7e593eefb90ba9c56fd",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
