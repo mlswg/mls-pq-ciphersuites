@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-05T02:30:29.552921+00:00",
+  "timestamp": "2026-07-07T02:30:54.119655+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -1319,7 +1319,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2026-07-04T12:23:06Z",
-      "updatedAt": "2026-07-04T12:24:33Z",
+      "updatedAt": "2026-07-06T06:53:02Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "4a3e8a75f7f46868889c71eb9090c102d6de6bdd",
@@ -1331,7 +1331,40 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLbkcE88AAAABFCwWDw",
+          "commit": {
+            "abbreviatedOid": "5df583b"
+          },
+          "author": "bifurcation",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "I think this is OK to go ahead, since it will need broader review and re-LC anyway.  But I would probably go with the prefixed versions I proposed.",
+          "createdAt": "2026-07-06T06:39:13Z",
+          "updatedAt": "2026-07-06T06:53:02Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I don't think a section break is necessary.",
+              "createdAt": "2026-07-06T06:39:13Z",
+              "updatedAt": "2026-07-06T06:53:02Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "It seems like we could also just define this for SHA3 specifically, if that would save any work.",
+              "createdAt": "2026-07-06T06:42:47Z",
+              "updatedAt": "2026-07-06T06:53:02Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "I don't have great instincts for this stuff, but I suspect this construction is problematic, since `Extract(secret, salt) = Expand(secret, salt, KDF.Nh)`.  I don't know if proofs are relying on these being distinct.  It would probably be good to add some labels here, e.g.:\n\n```\nExtract(secret, salt) = Derive(concat(\"MLS 1.0 expand\", salt, secret), KDF.Nh)\nExpand(secret, label, length) = Derive(concat(\"MLS 1.0 expand\", label, secret), length)\n```\n\nEither way, this should go back through WGLC, and we should make sure to get review from folks who understand the assumptions that undergird the modeling.  And we will probably need to update the Security Considerations to record those assumptions and how these functions meet them.",
+              "createdAt": "2026-07-06T06:52:26Z",
+              "updatedAt": "2026-07-06T06:53:02Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
