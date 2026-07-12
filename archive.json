@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-07T02:30:54.119655+00:00",
+  "timestamp": "2026-07-12T02:06:02.404469+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -147,6 +147,22 @@
       "createdAt": "2026-05-06T19:24:35Z",
       "updatedAt": "2026-07-02T19:41:29Z",
       "closedAt": "2026-07-02T19:41:29Z",
+      "comments": []
+    },
+    {
+      "number": 22,
+      "id": "I_kwDOLbkcE88AAAABINpnPg",
+      "title": "How are MLS Extract/Expand realized with SHAKE256?",
+      "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/22",
+      "state": "OPEN",
+      "author": "emil-wire",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hello,\n\ndraft-ietf-mls-pq-ciphersuites-04 sets SHAKE256 as the KDF for all nine cipher suites, but I can't find where the key schedule's KDF operations are pinned down for it, and I wanted to check whether I'm missing something. I'm also reading the current [editor's copy](https://messaginglayersecurity.rocks/mls-pq-ciphersuites/draft-ietf-mls-pq-ciphersuites.html), which matches, along with [hpke-pq-04](https://www.ietf.org/archive/id/draft-ietf-hpke-pq-04.txt), [hpke-hpke-03](https://www.ietf.org/archive/id/draft-ietf-hpke-hpke-03.txt), and [RFC 9420](https://www.rfc-editor.org/rfc/rfc9420.html).\n\n[RFC 9420 Section 8](https://www.rfc-editor.org/rfc/rfc9420.html#section-8) builds the key schedule out of KDF.Extract(salt, ikm) and KDF.Expand(prk, info, L). In the base suites the KDF is HKDF, so those map directly. SHAKE256 is registered in hpke-pq as a one-stage KDF ([Section 5, Table 1](https://www.ietf.org/archive/id/draft-ietf-hpke-pq-04.txt), \"Two-Stage: N\"), and [hpke-hpke-03 Section 4.2](https://www.ietf.org/archive/id/draft-ietf-hpke-hpke-03.txt) only defines Extract/Expand for two-stage KDFs, giving one-stage KDFs a single Derive instead. So for these suites it isn't clear to me what KDF.Extract and KDF.Expand actually compute.\n\nhpke-hpke handles this internally by giving every affected function a _OneStage variant that collapses to LabeledDerive, but that covers HPKE's own operations, not the MLS key schedule. A couple of spots don't collapse cleanly anyway, in particular the PSK chain in [Section 8.4](https://www.rfc-editor.org/rfc/rfc9420.html#section-8.4), where an Extract output is used as a PRK and then fed as the ikm of the next Extract. There's also the label question, since MLS uses \"MLS 1.0 \" rather than HPKE's \"HPKE-v1\", so borrowing HPKE's derivation directly wouldn't reproduce MLS's bytes.\n\nIs the intent that implementations define their own Extract/Expand over SHAKE256, or should the cipher suites be restricted to two-stage KDFs, or is this meant to be specified somewhere I haven't looked? If it's left to implementations, two interoperable stacks could end up deriving different epoch secrets. Happy to send a PR once the intended direction is clear.\n\n\nCheers,\n\nEmil",
+      "createdAt": "2026-07-09T12:18:02Z",
+      "updatedAt": "2026-07-09T12:18:02Z",
+      "closedAt": null,
       "comments": []
     }
   ],
