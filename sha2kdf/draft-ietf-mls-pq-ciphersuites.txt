@@ -158,8 +158,8 @@ Table of Contents
    the Extract function to incorporate commit secrets and pre-shared
    keys into the key schedule.  As [I-D.ietf-hpke-pq] does not define
    either function for "single-stage" KDFs like SHAKE (see Section 5 of
-   [I-D.ietf-hpke-pq]), the cipher suites defined here use SHA-384 and
-   SHA-256 for the KDF functions used inside MLS.
+   [I-D.ietf-hpke-pq]), the cipher suites defined here use HKDF-SHA384
+   and HKDF-SHA256 for the KDF functions used inside MLS.
 
    Finally, one of cipher suites at the 128-bit security level, uses the
    same hybrid KEM as the first cipher suite, the ChaCha20-Poly130
