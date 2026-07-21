@@ -5,7 +5,7 @@
 MLS                                                              R. Mahy
 Internet-Draft                                                          
 Intended status: Standards Track                            R. L. Barnes
-Expires: 4 January 2027                                      3 July 2026
+Expires: 22 January 2027                                    21 July 2026
 
 
       ML-KEM and Hybrid Cipher Suites for Messaging Layer Security
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2027.
+   This Internet-Draft will expire on 22 January 2027.
 
 Copyright Notice
 
@@ -72,12 +72,11 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  IANA Considerations
-     2.1.  MLS Cipher Suites
-   3.  Security Considerations
-   4.  References
-     4.1.  Normative References
-     4.2.  Informative References
+   2.  Post-quantum KEM Cipher Suites
+   3.  IANA Considerations
+     3.1.  MLS Cipher Suites
+   4.  Security Considerations
+   5.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -112,6 +111,8 @@ Table of Contents
    The cipher suites with post-quantum signatures use only post-quantum
    KEMs.
 
+2.  Post-quantum KEM Cipher Suites
+
    Following the pattern of base MLS, we define several variations, to
    allow for users that prefer to only use NIST-approved cryptography,
    users that prefer a higher security level, and users that prefer a
@@ -144,13 +145,26 @@ Table of Contents
    would like to follow recent recommendations to transition immediately
    to AES256 GCM [GCM] and HMAC [RFC2104] with SHA-384 [SHS].
 
-   For all of the cipher suites defined in this document, we use
-   SHAKE256 (Section 3.2 of [FIPS202]) as the Key Derivation Function
-   (KDF).
-
    For the cipher suites at the 192-bit or 256-bit security levels, we
    use AES256 GCM [GCM] as the AEAD algorithm, and HMAC [RFC2104] with
    SHA-384 [SHS] as the hash function.
+
+   ML-KEM uses the SHAKE and SHA-3 algorithms internally (see
+   Section 4.1 of [FIPS202]).  Likewise the three hybrid KEMs
+   [I-D.irtf-cfrg-concrete-hybrid-kems] used in this document use SHAKE
+   as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation
+   Function (KDF) inside the hybrid combiner.
+
+   MLS extensively uses the two-stage KDF functions Extract and Expand
+   defined in Section 4.2 of [I-D.ietf-hpke-hpke] to derive keys in the
+   ratchet tree Section 7.4 of [RFC9420], the key schedule Section 8 of
+   [RFC9420], and the secret tree Section 9 of [RFC9420].  In
+   particular, MLS uses the Extract function to incorporate commit
+   secrets and pre-shared keys into the key schedule.  As
+   [I-D.ietf-hpke-pq] does not define either function for "single-stage"
+   KDFs like SHAKE (see Section 5 of [I-D.ietf-hpke-pq]), the cipher
+   suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-
+   SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.
 
    Finally, one of cipher suites at the 128-bit security level, uses the
    same hybrid KEM as the first cipher suite, the ChaCha20-Poly130
@@ -164,9 +178,9 @@ Table of Contents
    ML-DSA-44, ML-DSA-65, and ML-DSA-87 [MLDSA] are defined in
    [I-D.ietf-tls-mldsa].
 
-2.  IANA Considerations
+3.  IANA Considerations
 
-2.1.  MLS Cipher Suites
+3.1.  MLS Cipher Suites
 
    This document requests that IANA add the following entries to the
    "MLS Cipher Suites" registry, replacing "XXXX" with the RFC number
@@ -207,27 +221,27 @@ Table of Contents
    +=====+========+========+========+========+========================+
    |Value| KEM    | KDF    | AEAD   | Hash   | Signature              |
    +=====+========+========+========+========+========================+
-   |TBD1 | 0x647a | 0x0011 | 0x0001 | SHA256 | ed25519                |
+   |TBD1 | 0x647a | 0x0001 | 0x0001 | SHA256 | ed25519                |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD2 | 0x647a | 0x0011 | 0x0002 | SHA384 | ed25519                |
+   |TBD2 | 0x647a | 0x0002 | 0x0002 | SHA384 | ed25519                |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD3 | 0x0050 | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
+   |TBD3 | 0x0050 | 0x0001 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD4 | 0x0050 | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+   |TBD4 | 0x0050 | 0x0002 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD5 | 0x0051 | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+   |TBD5 | 0x0051 | 0x0002 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD6 | 0x0041 | 0x0011 | 0x0002 | SHA384 | ed25519                |
+   |TBD6 | 0x0041 | 0x0002 | 0x0002 | SHA384 | ed25519                |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD7 | 0x0041 | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+   |TBD7 | 0x0041 | 0x0002 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD8 | 0x0042 | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+   |TBD8 | 0x0042 | 0x0002 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD9 | 0x647a | 0x0011 | 0x0003 | SHA384 | mldsa44                |
+   |TBD9 | 0x647a | 0x0002 | 0x0003 | SHA384 | mldsa44                |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD10| 0x0041 | 0x0011 | 0x0002 | SHA384 | mldsa65                |
+   |TBD10| 0x0041 | 0x0002 | 0x0002 | SHA384 | mldsa65                |
    +-----+--------+--------+--------+--------+------------------------+
-   |TBD11| 0x0042 | 0x0011 | 0x0002 | SHA384 | mldsa87                |
+   |TBD11| 0x0042 | 0x0002 | 0x0002 | SHA384 | mldsa87                |
    +-----+--------+--------+--------+--------+------------------------+
 
                                  Table 2
@@ -236,7 +250,7 @@ Table of Contents
    the cipher suite name.  "SHA256" and "SHA384" refer to the SHA-256
    and SHA-384 functions defined in [SHS].
 
-3.  Security Considerations
+4.  Security Considerations
 
    The first eight ciphersuites defined in this document combine a post-
    quantum (or PQ/T hybrid) KEM with a traditional signature algorithm.
@@ -254,9 +268,7 @@ Table of Contents
    considerations related to the post-quantum signature algorithms used
    in this document, please see [I-D.ietf-tls-mldsa] and [RFC9881].
 
-4.  References
-
-4.1.  Normative References
+5.  Normative References
 
    [FIPS202]  "SHA-3 standard :: permutation-based hash and extendable-
               output functions", National Institute of Standards and
@@ -272,23 +284,23 @@ Table of Contents
    [I-D.ietf-hpke-hpke]
               Barnes, R., Bhargavan, K., Lipp, B., and C. A. Wood,
               "Hybrid Public Key Encryption", Work in Progress,
-              Internet-Draft, draft-ietf-hpke-hpke-03, 2 March 2026,
+              Internet-Draft, draft-ietf-hpke-hpke-04, 6 July 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-hpke-
-              hpke-03>.
+              hpke-04>.
 
    [I-D.ietf-hpke-pq]
               Barnes, R. and D. Connolly, "Post-Quantum and Post-
               Quantum/Traditional Hybrid Algorithms for HPKE", Work in
-              Progress, Internet-Draft, draft-ietf-hpke-pq-04, 2 March
+              Progress, Internet-Draft, draft-ietf-hpke-pq-05, 6 July
               2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              hpke-pq-04>.
+              hpke-pq-05>.
 
    [I-D.ietf-tls-mldsa]
               Hollebeek, T., Schmieg, S., and B. Westerbaan, "Use of ML-
               DSA in TLS 1.3", Work in Progress, Internet-Draft, draft-
-              ietf-tls-mldsa-04, 18 June 2026,
+              ietf-tls-mldsa-05, 6 July 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              mldsa-04>.
+              mldsa-05>.
 
    [I-D.ietf-tls-rfc8446bis]
               Rescorla, E., "The Transport Layer Security (TLS) Protocol
@@ -296,6 +308,20 @@ Table of Contents
               ietf-tls-rfc8446bis-14, 13 September 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               rfc8446bis-14>.
+
+   [I-D.irtf-cfrg-concrete-hybrid-kems]
+              Connolly, D. and R. Barnes, "Concrete Hybrid PQ/T Key
+              Encapsulation Mechanisms", Work in Progress, Internet-
+              Draft, draft-irtf-cfrg-concrete-hybrid-kems-04, 6 July
+              2026, <https://datatracker.ietf.org/doc/html/draft-irtf-
+              cfrg-concrete-hybrid-kems-04>.
+
+   [I-D.irtf-cfrg-hybrid-kems]
+              Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
+              Encapsulation Mechanisms", Work in Progress, Internet-
+              Draft, draft-irtf-cfrg-hybrid-kems-12, 6 July 2026,
+              <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
+              hybrid-kems-12>.
 
    [MLDSA]    "Module-lattice-based digital signature standard",
               National Institute of Standards and Technology (U.S.),
@@ -325,25 +351,16 @@ Table of Contents
               Security (MLS) Protocol", RFC 9420, DOI 10.17487/RFC9420,
               July 2023, <https://www.rfc-editor.org/rfc/rfc9420>.
 
-   [SHS]      "Secure hash standard", National Institute of Standards
-              and Technology (U.S.), DOI 10.6028/nist.fips.180-4, 2015,
-              <https://doi.org/10.6028/nist.fips.180-4>.
-
-4.2.  Informative References
-
-   [I-D.irtf-cfrg-hybrid-kems]
-              Connolly, D., Barnes, R., and P. Grubbs, "Hybrid PQ/T Key
-              Encapsulation Mechanisms", Work in Progress, Internet-
-              Draft, draft-irtf-cfrg-hybrid-kems-11, 7 May 2026,
-              <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              hybrid-kems-11>.
-
    [RFC9881]  Massimo, J., Kampanakis, P., Turner, S., and B. E.
               Westerbaan, "Internet X.509 Public Key Infrastructure --
               Algorithm Identifiers for the Module-Lattice-Based Digital
               Signature Algorithm (ML-DSA)", RFC 9881,
               DOI 10.17487/RFC9881, October 2025,
               <https://www.rfc-editor.org/rfc/rfc9881>.
+
+   [SHS]      "Secure hash standard", National Institute of Standards
+              and Technology (U.S.), DOI 10.6028/nist.fips.180-4, 2015,
+              <https://doi.org/10.6028/nist.fips.180-4>.
 
 Acknowledgments
 
