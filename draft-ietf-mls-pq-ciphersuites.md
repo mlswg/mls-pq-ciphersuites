@@ -89,9 +89,12 @@ Some parts of the community wish to support the 128-bit security level with the 
 
 For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
 
-While ML-KEM uses the SHAKE and SHA3 algorithms internally (see Section 4.1 of {{FIPS202}}), MLS extensively uses the Hybrid Public Key Encryption (HPKE) {{!I-D.ietf-hpke-hpke}} Key Derivation Function (KDF) functions `Extract` and `Expand` to derive keys in the ratchet tree {{Section 7.4 of RFC9420}}, the key schedule {{Section 8 of RFC9420}}, and the secret tree {{Section 9 of RFC9420}}.
+ML-KEM uses the SHAKE and SHA-3 algorithms internally (see Section 4.1 of {{FIPS202}}).
+Likewise the three hybrid KEMs {{!I-D.irtf-cfrg-concrete-hybrid-kems}} used in this document use SHAKE as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation Function (KDF) inside the hybrid combiner.
+
+MLS extensively uses the two-stage KDF functions `Extract` and `Expand` defined in {{Section 4.2 of !I-D.ietf-hpke-hpke}} to derive keys in the ratchet tree {{Section 7.4 of RFC9420}}, the key schedule {{Section 8 of RFC9420}}, and the secret tree {{Section 9 of RFC9420}}.
 In particular, MLS uses the `Extract` function to incorporate commit secrets and pre-shared keys into the key schedule.
-As {{!I-D.ietf-hpke-pq}} does not define either function for "single-stage" KDFs like SHAKE (see {{Section 5 of !I-D.ietf-hpke-pq}}), the cipher suites defined here use HKDF-SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.
+As {{!I-D.ietf-hpke-pq}} does not define either function for "single-stage" KDFs like SHAKE (see {{Section 5 of !I-D.ietf-hpke-pq}}), the cipher suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.
 
 Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 {{!RFC8439}} AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
 The choice of ChaCha20-Poly130 was selected for acceptable performance when implemented entirely in software.
