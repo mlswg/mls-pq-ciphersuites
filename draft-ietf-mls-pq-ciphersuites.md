@@ -71,6 +71,8 @@ In this document, we define ciphersuites that use the post-quantum secure Module
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
 The cipher suites with post-quantum signatures use only post-quantum KEMs.
 
+# Post-quantum KEM Cipher Suites
+
 Following the pattern of base MLS, we define several variations, to allow for users that prefer to only use NIST-approved cryptography, users that prefer a higher security level, and users that prefer a PQ/traditional hybrid KEM over pure ML-KEM:
 
 * ML-KEM-768 + X25519 (128-bit security, Non-NIST, PQ/T hybrid KEM)
@@ -85,15 +87,21 @@ Following the pattern of base MLS, we define several variations, to allow for us
 
 Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) {{!RFC5116}} algorithms and hash function as used in the default cipher suite registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
 
-For all of the cipher suites defined in this document, we use SHAKE256 (Section 3.2 of {{FIPS202}}) as the Key Derivation Function (KDF).
-
 For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
+
+ML-KEM uses the SHAKE and SHA-3 algorithms internally (see Section 4.1 of {{FIPS202}}).
+Likewise the three hybrid KEMs {{!I-D.irtf-cfrg-concrete-hybrid-kems}} used in this document use SHAKE as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation Function (KDF) inside the hybrid combiner.
+
+MLS extensively uses the two-stage KDF functions `Extract` and `Expand` defined in {{Section 4.2 of !I-D.ietf-hpke-hpke}} to derive keys in the ratchet tree {{Section 7.4 of RFC9420}}, the key schedule {{Section 8 of RFC9420}}, and the secret tree {{Section 9 of RFC9420}}.
+In particular, MLS uses the `Extract` function to incorporate commit secrets and pre-shared keys into the key schedule.
+As {{!I-D.ietf-hpke-pq}} does not define either function for "single-stage" KDFs like SHAKE (see {{Section 5 of !I-D.ietf-hpke-pq}}), the cipher suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.
 
 Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 {{!RFC8439}} AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
 The choice of ChaCha20-Poly130 was selected for acceptable performance when implemented entirely in software.
 
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
 The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
+
 
 # IANA Considerations
 
@@ -120,17 +128,17 @@ The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC ha
 
 | Value | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:======|:========|:=======|:=======|:=======|:=======================|
-| TBD1  | 0x647a  | 0x0011 | 0x0001 | SHA256 | ed25519                |
-| TBD2  | 0x647a  | 0x0011 | 0x0002 | SHA384 | ed25519                |
-| TBD3  | 0x0050  | 0x0011 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
-| TBD4  | 0x0050  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
-| TBD5  | 0x0051  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
-| TBD6  | 0x0041  | 0x0011 | 0x0002 | SHA384 | ed25519                |
-| TBD7  | 0x0041  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
-| TBD8  | 0x0042  | 0x0011 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
-| TBD9  | 0x647a  | 0x0011 | 0x0003 | SHA384 | mldsa44                |
-| TBD10 | 0x0041  | 0x0011 | 0x0002 | SHA384 | mldsa65                |
-| TBD11 | 0x0042  | 0x0011 | 0x0002 | SHA384 | mldsa87                |
+| TBD1  | 0x647a  | 0x0001 | 0x0001 | SHA256 | ed25519                |
+| TBD2  | 0x647a  | 0x0002 | 0x0002 | SHA384 | ed25519                |
+| TBD3  | 0x0050  | 0x0001 | 0x0001 | SHA256 | ecdsa_secp256r1_sha256 |
+| TBD4  | 0x0050  | 0x0002 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| TBD5  | 0x0051  | 0x0002 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+| TBD6  | 0x0041  | 0x0002 | 0x0002 | SHA384 | ed25519                |
+| TBD7  | 0x0041  | 0x0002 | 0x0002 | SHA384 | ecdsa_secp256r1_sha256 |
+| TBD8  | 0x0042  | 0x0002 | 0x0002 | SHA384 | ecdsa_secp384r1_sha384 |
+| TBD9  | 0x647a  | 0x0002 | 0x0003 | SHA384 | mldsa44                |
+| TBD10 | 0x0041  | 0x0002 | 0x0002 | SHA384 | mldsa65                |
+| TBD11 | 0x0042  | 0x0002 | 0x0002 | SHA384 | mldsa87                |
 
 The hash used for the MLS transcript hash is the one referenced in the cipher suite name. "SHA256" and "SHA384" refer to the SHA-256 and SHA-384 functions defined in {{SHS}}.
 
@@ -140,8 +148,8 @@ The first eight ciphersuites defined in this document combine a post-quantum (or
 
 The last three cipher suites also use post-quantum signature algorithms.
 
-For security considerations related to the KEMs used in this document, please see the documents that define those KEMs {{!I-D.ietf-hpke-pq}} and {{?I-D.irtf-cfrg-hybrid-kems}}.
-For security considerations related to the post-quantum signature algorithms used in this document, please see {{!I-D.ietf-tls-mldsa}} and {{?RFC9881}}.
+For security considerations related to the KEMs used in this document, please see the documents that define those KEMs {{!I-D.ietf-hpke-pq}} and {{!I-D.irtf-cfrg-hybrid-kems}}.
+For security considerations related to the post-quantum signature algorithms used in this document, please see {{!I-D.ietf-tls-mldsa}} and {{!RFC9881}}.
 
 --- back
 
