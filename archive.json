@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-21T02:03:12.226409+00:00",
+  "timestamp": "2026-07-23T02:08:31.836156+00:00",
   "repo": "mlswg/mls-pq-ciphersuites",
   "labels": [
     {
@@ -154,15 +154,15 @@
       "id": "I_kwDOLbkcE88AAAABINpnPg",
       "title": "How are MLS Extract/Expand realized with SHAKE256?",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emil-wire",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Hello,\n\ndraft-ietf-mls-pq-ciphersuites-04 sets SHAKE256 as the KDF for all nine cipher suites, but I can't find where the key schedule's KDF operations are pinned down for it, and I wanted to check whether I'm missing something. I'm also reading the current [editor's copy](https://messaginglayersecurity.rocks/mls-pq-ciphersuites/draft-ietf-mls-pq-ciphersuites.html), which matches, along with [hpke-pq-04](https://www.ietf.org/archive/id/draft-ietf-hpke-pq-04.txt), [hpke-hpke-03](https://www.ietf.org/archive/id/draft-ietf-hpke-hpke-03.txt), and [RFC 9420](https://www.rfc-editor.org/rfc/rfc9420.html).\n\n[RFC 9420 Section 8](https://www.rfc-editor.org/rfc/rfc9420.html#section-8) builds the key schedule out of KDF.Extract(salt, ikm) and KDF.Expand(prk, info, L). In the base suites the KDF is HKDF, so those map directly. SHAKE256 is registered in hpke-pq as a one-stage KDF ([Section 5, Table 1](https://www.ietf.org/archive/id/draft-ietf-hpke-pq-04.txt), \"Two-Stage: N\"), and [hpke-hpke-03 Section 4.2](https://www.ietf.org/archive/id/draft-ietf-hpke-hpke-03.txt) only defines Extract/Expand for two-stage KDFs, giving one-stage KDFs a single Derive instead. So for these suites it isn't clear to me what KDF.Extract and KDF.Expand actually compute.\n\nhpke-hpke handles this internally by giving every affected function a _OneStage variant that collapses to LabeledDerive, but that covers HPKE's own operations, not the MLS key schedule. A couple of spots don't collapse cleanly anyway, in particular the PSK chain in [Section 8.4](https://www.rfc-editor.org/rfc/rfc9420.html#section-8.4), where an Extract output is used as a PRK and then fed as the ikm of the next Extract. There's also the label question, since MLS uses \"MLS 1.0 \" rather than HPKE's \"HPKE-v1\", so borrowing HPKE's derivation directly wouldn't reproduce MLS's bytes.\n\nIs the intent that implementations define their own Extract/Expand over SHAKE256, or should the cipher suites be restricted to two-stage KDFs, or is this meant to be specified somewhere I haven't looked? If it's left to implementations, two interoperable stacks could end up deriving different epoch secrets. Happy to send a PR once the intended direction is clear.\n\n\nCheers,\n\nEmil",
       "createdAt": "2026-07-09T12:18:02Z",
-      "updatedAt": "2026-07-20T16:08:16Z",
-      "closedAt": null,
+      "updatedAt": "2026-07-21T13:22:24Z",
+      "closedAt": "2026-07-21T09:14:28Z",
       "comments": [
         {
           "author": "rohanmahy",
@@ -170,6 +170,13 @@
           "body": "Addressed in #23 and 21 (pick one approach). My preference is #23.",
           "createdAt": "2026-07-20T16:08:16Z",
           "updatedAt": "2026-07-20T16:08:16Z"
+        },
+        {
+          "author": "emil-wire",
+          "authorAssociation": "NONE",
+          "body": "Thank you!",
+          "createdAt": "2026-07-21T13:22:24Z",
+          "updatedAt": "2026-07-21T13:22:24Z"
         }
       ]
     }
@@ -1336,25 +1343,33 @@
       "id": "PR_kwDOLbkcE87t2tZ5",
       "title": "Define Extract and Expand for one-stage KDFs",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-07-04T12:23:06Z",
-      "updatedAt": "2026-07-20T16:07:21Z",
+      "updatedAt": "2026-07-21T09:14:48Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "4a3e8a75f7f46868889c71eb9090c102d6de6bdd",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "oneshot-kdf",
       "headRefOid": "5df583b168e7dc4a2201d7e593eefb90ba9c56fd",
-      "closedAt": null,
+      "closedAt": "2026-07-21T09:14:48Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "rohanmahy",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing in favor of #23 ",
+          "createdAt": "2026-07-21T09:14:48Z",
+          "updatedAt": "2026-07-21T09:14:48Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOLbkcE88AAAABFCwWDw",
@@ -1415,24 +1430,26 @@
       "id": "PR_kwDOLbkcE87zvtAa",
       "title": "Use SHA2 KDFs for all ciphersuites",
       "url": "https://github.com/mlswg/mls-pq-ciphersuites/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "rohanmahy",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- Use SHA2 for the KDFs\r\n- make 2 more references normative\r\n\r\nCloses #22 \r\n\r\nHPKE does not define `Extract` and `Expand` for \"single-stage\" KDFs.  \r\n\r\nWhile ML-KEM uses the SHAKE and SHA3 algorithms internally (see Section 4.1 of [[FIPS202](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#FIPS202)]), MLS extensively uses the Hybrid Public Key Encryption (HPKE) [[I-D.ietf-hpke-hpke](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#I-D.ietf-hpke-hpke)] Key Derivation Function (KDF) functions Extract and Expand to derive keys in the ratchet tree [Section 7.4](https://rfc-editor.org/rfc/rfc9420#section-7.4) of [[RFC9420](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#RFC9420)], the key schedule [Section 8](https://rfc-editor.org/rfc/rfc9420#section-8) of [[RFC9420](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#RFC9420)], and the secret tree [Section 9](https://rfc-editor.org/rfc/rfc9420#section-9) of [[RFC9420](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#RFC9420)]. In particular, MLS uses the Extract function to incorporate commit secrets and pre-shared keys into the key schedule. As [[I-D.ietf-hpke-pq](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#I-D.ietf-hpke-pq)] does not define either function for \"single-stage\" KDFs like SHAKE (see [Section 5](https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-05#section-5) of [[I-D.ietf-hpke-pq](https://github.com/mlswg/mls-pq-ciphersuites/compare/sha2kdf?expand=1#I-D.ietf-hpke-pq)]), the cipher suites defined here use SHA-384 and SHA-256 for the KDF functions used inside MLS.\r\n\r\nWhy can't we just redefine `Extract` and `Expand` using SHAKE or SHAKE and SHA3? (Approach take in PR #21 )\r\n- We are getting too far over our skis. This should be addressed in HPKE if this is really needed\r\n- It is unclear that the security assumption still hold for `Extract`.  In [Section 2.2 of RFC 5869](https://datatracker.ietf.org/doc/html/rfc5869#section-2.2), the first parameter of HKDF-Extract is intended to be a **non-secret value** (a salt).",
       "createdAt": "2026-07-20T08:09:19Z",
-      "updatedAt": "2026-07-20T19:38:58Z",
+      "updatedAt": "2026-07-21T09:14:28Z",
       "baseRepository": "mlswg/mls-pq-ciphersuites",
       "baseRefName": "main",
       "baseRefOid": "4a3e8a75f7f46868889c71eb9090c102d6de6bdd",
       "headRepository": "mlswg/mls-pq-ciphersuites",
       "headRefName": "sha2kdf",
-      "headRefOid": "c22e81014ca39adb878b1ffa59c74cf282d24835",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "fb18956ee4e6ff644413de5c09679b087bb8c57d",
+      "closedAt": "2026-07-21T09:14:27Z",
+      "mergedAt": "2026-07-21T09:14:27Z",
+      "mergedBy": "rohanmahy",
+      "mergeCommit": {
+        "oid": "6f34e4faa03f4ca34007128b85653f27b6bfdc96"
+      },
       "comments": [
         {
           "author": "kkohbrok",
