@@ -146,6 +146,8 @@ The hash used for the MLS transcript hash is the one referenced in the cipher su
 # Security Considerations
 
 The first eight cipher suites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.
+That post-quantum confidentiality holds only against passive attackers, such as those mounting "harvest now, decrypt later" attacks.
+An attacker able to forge the traditional signatures, or the credentials that bind the signature keys to identities, can inject KeyPackages or group operations and thereby compromise the confidentiality of later epochs.
 
 The last three cipher suites also use post-quantum signature algorithms.
 
