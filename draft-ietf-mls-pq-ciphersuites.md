@@ -162,10 +162,6 @@ For security considerations related to the post-quantum signature algorithms use
 # Acknowledgments
 {:numbered="false"}
 
-Mark Atwood provided useful corrections and clarifications.
-
-# Acknowledgments
-{:numbered="false"}
-
 This work would not be possible without the hard work of the CFRG Hybrid KEM design team: Aron Wussler, Bas Westerbaan, Deirdre Connolly, Mike Ounsworth, Nick Sullivan, and Stephen Farrell.
 Thanks also to Joël Alwen, Marta Mularczyk, and Britta Hale.
+Mark Atwood provided useful corrections and clarifications.
