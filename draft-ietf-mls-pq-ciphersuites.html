@@ -9,7 +9,7 @@
 <meta content="Richard L. Barnes" name="author">
 <meta content='
        This document registers new cipher suites for Messaging Layer Security (MLS) based on "post-quantum" algorithms, which are intended to be resilient to attack by quantum computers.
-These cipher suites are constructed using the new Module-Lattice Key Encapsulation Mechanism (ML-KEM), optionally in combination with traditional elliptic curve KEMs, together with appropriate authenticated encryption, hash, and signature algorithms. 
+These cipher suites are constructed using the new Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), optionally in combination with traditional elliptic curve KEMs, together with appropriate authenticated encryption, hash, and signature algorithms. 
     ' name="description">
 <meta content="xml2rfc 3.34.1" name="generator">
 <meta content="ML-KEM" name="keyword">
@@ -20,7 +20,7 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
 <meta content="PQ/T" name="keyword">
 <meta content="hybrid" name="keyword">
 <meta content="hybrid KEM" name="keyword">
-<meta content="Key Exchange Mechanism" name="keyword">
+<meta content="Key Encapsulation Mechanism" name="keyword">
 <meta content="draft-ietf-mls-pq-ciphersuites-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.34.1
@@ -1089,7 +1089,7 @@ svg {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document registers new cipher suites for Messaging Layer Security (MLS) based on "post-quantum" algorithms, which are intended to be resilient to attack by quantum computers.
-These cipher suites are constructed using the new Module-Lattice Key Encapsulation Mechanism (ML-KEM), optionally in combination with traditional elliptic curve KEMs, together with appropriate authenticated encryption, hash, and signature algorithms.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+These cipher suites are constructed using the new Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), optionally in combination with traditional elliptic curve KEMs, together with appropriate authenticated encryption, hash, and signature algorithms.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1179,7 +1179,10 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
             <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments-2" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1190,14 +1193,14 @@ These cipher suites are constructed using the new Module-Lattice Key Encapsulati
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The potential availability of a cryptographically-relevant quantum computer has caused concern that well-funded adversaries could overturn long-held assumptions about the security assurances of classical Key Exchange Mechanisms (KEMs) and classical cryptographic signatures, which are fundamental to modern security protocols, including the MLS protocol <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The potential availability of a cryptographically-relevant quantum computer has caused concern that well-funded adversaries could overturn long-held assumptions about the security assurances of classical Key Encapsulation Mechanisms (KEMs) and classical cryptographic signatures, which are fundamental to modern security protocols, including the MLS protocol <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Of particular concern are "harvest now, decrypt later" attacks, by which an attacker could collect encrypted traffic now, before a quantum computer exists, and later use a quantum computer to break the confidentiality protections on the collected traffic.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">In response to these concerns, the cryptographic community has defined "post-quantum" algorithms, which are designed to be resilient to attacks by quantum computers.
 Symmetric algorithms can be made post-quantum secure simply by using longer keys and hashes.
 For asymmetric operations such as KEMs and signatures, entirely new algorithms are needed.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">In this document, we define ciphersuites that use the post-quantum secure Module-Lattice-Based KEM (ML-KEM) <span>[<a href="#MLKEM" class="cite xref">MLKEM</a>]</span> together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> post-quantum signature algorithms.
+<p id="section-1-4">In this document, we define cipher suites that use the post-quantum secure Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) <span>[<a href="#MLKEM" class="cite xref">MLKEM</a>]</span> together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> post-quantum signature algorithms.
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
-The cipher suites with post-quantum signatures use only post-quantum KEMs.<a href="#section-1-4" class="pilcrow">¶</a></p>
+The cipher suites with post-quantum signatures use either a pure post-quantum KEM or a PQ/T hybrid KEM.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="post-quantum-kem-cipher-suites">
@@ -1235,17 +1238,18 @@ The cipher suites with post-quantum signatures use only post-quantum KEMs.<a hre
           <p id="section-2-2.9.1">ML-KEM-1024 (256-bit security, NIST, pure PQ)<a href="#section-2-2.9.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-2-3">Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Authenticated Data (AEAD) <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> algorithms and hash function as used in the default cipher suite registered in <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span> (AES128 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-256 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> as the AEAD algorithm, and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span> as the hash function.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">ML-KEM uses the SHAKE and SHA-3 algorithms internally (see Section 4.1 of <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>).
-Likewise the three hybrid KEMs <span>[<a href="#I-D.irtf-cfrg-concrete-hybrid-kems" class="cite xref">I-D.irtf-cfrg-concrete-hybrid-kems</a>]</span> used in this document use SHAKE as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation Function (KDF) inside the hybrid combiner.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">MLS extensively uses the two-stage KDF functions <code>Extract</code> and <code>Expand</code> defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-06#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.ietf-hpke-hpke" class="cite xref">I-D.ietf-hpke-hpke</a>]</span> to derive keys in the ratchet tree <span><a href="https://rfc-editor.org/rfc/rfc9420#section-7.4" class="relref">Section 7.4</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>, the key schedule <span><a href="https://rfc-editor.org/rfc/rfc9420#section-8" class="relref">Section 8</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>, and the secret tree <span><a href="https://rfc-editor.org/rfc/rfc9420#section-9" class="relref">Section 9</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>.
+<p id="section-2-3">The first two entries are each registered twice: once with AES128 GCM and SHA-256, and once with AES256 GCM and SHA-384.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Associated Data (AEAD) <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> algorithms and hash function as used in the default cipher suite registered in <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span> (AES128 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-256 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5">For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM <span>[<a href="#GCM" class="cite xref">GCM</a>]</span> as the AEAD algorithm, and HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> with SHA-384 <span>[<a href="#SHS" class="cite xref">SHS</a>]</span> as the hash function.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">ML-KEM uses the SHAKE and SHA-3 algorithms <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span> internally (see Section 4.1 of <span>[<a href="#MLKEM" class="cite xref">MLKEM</a>]</span>).
+Likewise the three hybrid KEMs <span>[<a href="#I-D.irtf-cfrg-concrete-hybrid-kems" class="cite xref">I-D.irtf-cfrg-concrete-hybrid-kems</a>]</span> used in this document use SHAKE as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation Function (KDF) inside the hybrid combiner.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7">MLS extensively uses the two-stage KDF functions <code>Extract</code> and <code>Expand</code> defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-hpke-06#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.ietf-hpke-hpke" class="cite xref">I-D.ietf-hpke-hpke</a>]</span> to derive keys in the ratchet tree <span><a href="https://rfc-editor.org/rfc/rfc9420#section-7.4" class="relref">Section 7.4</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>, the key schedule <span><a href="https://rfc-editor.org/rfc/rfc9420#section-8" class="relref">Section 8</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>, and the secret tree <span><a href="https://rfc-editor.org/rfc/rfc9420#section-9" class="relref">Section 9</a> of [<a href="#RFC9420" class="cite xref">RFC9420</a>]</span>.
 In particular, MLS uses the <code>Extract</code> function to incorporate commit secrets and pre-shared keys into the key schedule.
-As <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span> does not define either function for "single-stage" KDFs like SHAKE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-05#section-5" class="relref">Section 5</a> of [<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>), the cipher suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7">Finally, one of cipher suites at the 128-bit security level, uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly130 <span>[<a href="#RFC8439" class="cite xref">RFC8439</a>]</span> AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
-The choice of ChaCha20-Poly130 was selected for acceptable performance when implemented entirely in software.<a href="#section-2-7" class="pilcrow">¶</a></p>
-<p id="section-2-8">For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>.
-The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> are defined in <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span>.<a href="#section-2-8" class="pilcrow">¶</a></p>
+As <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span> does not define either function for "single-stage" KDFs like SHAKE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-hpke-pq-05#section-5" class="relref">Section 5</a> of [<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>), the cipher suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8">Finally, one of the cipher suites at the 128-bit security level uses the same hybrid KEM as the first cipher suite, the ChaCha20-Poly1305 <span>[<a href="#RFC8439" class="cite xref">RFC8439</a>]</span> AEAD algorithm, HMAC with SHA-384, and the pure PQ signature algorithm ML-DSA-44.
+ChaCha20-Poly1305 was chosen for acceptable performance when implemented entirely in software.<a href="#section-2-8" class="pilcrow">¶</a></p>
+<p id="section-2-9">For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>.
+The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 <span>[<a href="#MLDSA" class="cite xref">MLDSA</a>]</span> are defined in <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span>.<a href="#section-2-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1452,9 +1456,9 @@ The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 <span>[<a href="#M
       <h2 id="name-security-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">The first eight ciphersuites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">The first eight cipher suites defined in this document combine a post-quantum (or PQ/T hybrid) KEM with a traditional signature algorithm. As such, they are designed to provide confidentiality against quantum and classical attacks, but provide authenticity against classical attacks only.  Thus, these cipher suites do not provide full post-quantum security, only post-quantum confidentiality.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">The last three cipher suites also use post-quantum signature algorithms.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">For security considerations related to the KEMs used in this document, please see the documents that define those KEMs <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span> and <span>[<a href="#I-D.irtf-cfrg-hybrid-kems" class="cite xref">I-D.irtf-cfrg-hybrid-kems</a>]</span>.
+<p id="section-4-3">For security considerations related to the KEMs used in this document, please see the documents that define those KEMs: <span>[<a href="#I-D.ietf-hpke-pq" class="cite xref">I-D.ietf-hpke-pq</a>]</span>, <span>[<a href="#I-D.irtf-cfrg-hybrid-kems" class="cite xref">I-D.irtf-cfrg-hybrid-kems</a>]</span>, and <span>[<a href="#I-D.irtf-cfrg-concrete-hybrid-kems" class="cite xref">I-D.irtf-cfrg-concrete-hybrid-kems</a>]</span>.
 For security considerations related to the post-quantum signature algorithms used in this document, please see <span>[<a href="#I-D.ietf-tls-mldsa" class="cite xref">I-D.ietf-tls-mldsa</a>]</span> and <span>[<a href="#RFC9881" class="cite xref">RFC9881</a>]</span>.<a href="#section-4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1536,12 +1540,20 @@ For security considerations related to the post-quantum signature algorithms use
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">This work would not be possible without the hard work of the CFRG Hybrid KEM design team: Aron Wussler, Bas Westerbaan, Deirdre Connolly, Mike Ounsworth, Nick Sullivan, and Stephen Farrell.
-Thanks also to Joël Alwen, Marta Mularczyk, and Britta Hale.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">Mark Atwood provided useful corrections and clarifications.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="acknowledgments-1">
+<section id="appendix-B">
+      <h2 id="name-acknowledgments-2">
+<a href="#name-acknowledgments-2" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-B-1">This work would not be possible without the hard work of the CFRG Hybrid KEM design team: Aron Wussler, Bas Westerbaan, Deirdre Connolly, Mike Ounsworth, Nick Sullivan, and Stephen Farrell.
+Thanks also to Joël Alwen, Marta Mularczyk, and Britta Hale.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>

@@ -16,7 +16,7 @@ Abstract
    This document registers new cipher suites for Messaging Layer
    Security (MLS) based on "post-quantum" algorithms, which are intended
    to be resilient to attack by quantum computers.  These cipher suites
-   are constructed using the new Module-Lattice Key Encapsulation
+   are constructed using the new Module-Lattice-Based Key-Encapsulation
    Mechanism (ML-KEM), optionally in combination with traditional
    elliptic curve KEMs, together with appropriate authenticated
    encryption, hash, and signature algorithms.
@@ -78,6 +78,7 @@ Table of Contents
    4.  Security Considerations
    5.  Normative References
    Acknowledgments
+   Acknowledgments
    Authors' Addresses
 
 1.  Introduction
@@ -85,9 +86,9 @@ Table of Contents
    The potential availability of a cryptographically-relevant quantum
    computer has caused concern that well-funded adversaries could
    overturn long-held assumptions about the security assurances of
-   classical Key Exchange Mechanisms (KEMs) and classical cryptographic
-   signatures, which are fundamental to modern security protocols,
-   including the MLS protocol [RFC9420].
+   classical Key Encapsulation Mechanisms (KEMs) and classical
+   cryptographic signatures, which are fundamental to modern security
+   protocols, including the MLS protocol [RFC9420].
 
    Of particular concern are "harvest now, decrypt later" attacks, by
    which an attacker could collect encrypted traffic now, before a
@@ -101,15 +102,15 @@ Table of Contents
    asymmetric operations such as KEMs and signatures, entirely new
    algorithms are needed.
 
-   In this document, we define ciphersuites that use the post-quantum
-   secure Module-Lattice-Based KEM (ML-KEM) [MLKEM] together with
-   appropriate symmetric algorithms, and either traditional or Module-
-   Lattice-Based Digital Signature Algorithm (ML-DSA) [MLDSA] post-
-   quantum signature algorithms.  The traditional signature cipher
-   suites address the risk of "harvest now, decrypt later" attacks,
-   while not taking on the additional cost of post-quantum signatures.
-   The cipher suites with post-quantum signatures use only post-quantum
-   KEMs.
+   In this document, we define cipher suites that use the post-quantum
+   secure Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+   [MLKEM] together with appropriate symmetric algorithms, and either
+   traditional or Module-Lattice-Based Digital Signature Algorithm (ML-
+   DSA) [MLDSA] post-quantum signature algorithms.  The traditional
+   signature cipher suites address the risk of "harvest now, decrypt
+   later" attacks, while not taking on the additional cost of post-
+   quantum signatures.  The cipher suites with post-quantum signatures
+   use either a pure post-quantum KEM or a PQ/T hybrid KEM.
 
 2.  Post-quantum KEM Cipher Suites
 
@@ -137,8 +138,11 @@ Table of Contents
 
    *  ML-KEM-1024 (256-bit security, NIST, pure PQ)
 
+   The first two entries are each registered twice: once with AES128 GCM
+   and SHA-256, and once with AES256 GCM and SHA-384.
+
    Some parts of the community wish to support the 128-bit security
-   level with the same Authenticated Encryption with Authenticated Data
+   level with the same Authenticated Encryption with Associated Data
    (AEAD) [RFC5116] algorithms and hash function as used in the default
    cipher suite registered in [RFC9420] (AES128 GCM [GCM] and HMAC
    [RFC2104] with SHA-256 [SHS]), while other parts of the community
@@ -149,8 +153,8 @@ Table of Contents
    use AES256 GCM [GCM] as the AEAD algorithm, and HMAC [RFC2104] with
    SHA-384 [SHS] as the hash function.
 
-   ML-KEM uses the SHAKE and SHA-3 algorithms internally (see
-   Section 4.1 of [FIPS202]).  Likewise the three hybrid KEMs
+   ML-KEM uses the SHAKE and SHA-3 algorithms [FIPS202] internally (see
+   Section 4.1 of [MLKEM]).  Likewise the three hybrid KEMs
    [I-D.irtf-cfrg-concrete-hybrid-kems] used in this document use SHAKE
    as a Pseudo-Random Generator (PRG) and SHA-3 as a Key Derivation
    Function (KDF) inside the hybrid combiner.
@@ -166,12 +170,11 @@ Table of Contents
    suites defined here use the HMAC-based KDF (HKDF) algorithms HKDF-
    SHA384 and HKDF-SHA256 for the KDF functions used inside MLS.
 
-   Finally, one of cipher suites at the 128-bit security level, uses the
-   same hybrid KEM as the first cipher suite, the ChaCha20-Poly130
+   Finally, one of the cipher suites at the 128-bit security level uses
+   the same hybrid KEM as the first cipher suite, the ChaCha20-Poly1305
    [RFC8439] AEAD algorithm, HMAC with SHA-384, and the pure PQ
-   signature algorithm ML-DSA-44.  The choice of ChaCha20-Poly130 was
-   selected for acceptable performance when implemented entirely in
-   software.
+   signature algorithm ML-DSA-44.  ChaCha20-Poly1305 was chosen for
+   acceptable performance when implemented entirely in software.
 
    For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use
    the KEMs defined in [I-D.ietf-hpke-pq].  The signature schemes for
@@ -252,21 +255,23 @@ Table of Contents
 
 4.  Security Considerations
 
-   The first eight ciphersuites defined in this document combine a post-
-   quantum (or PQ/T hybrid) KEM with a traditional signature algorithm.
-   As such, they are designed to provide confidentiality against quantum
-   and classical attacks, but provide authenticity against classical
-   attacks only.  Thus, these cipher suites do not provide full post-
-   quantum security, only post-quantum confidentiality.
+   The first eight cipher suites defined in this document combine a
+   post-quantum (or PQ/T hybrid) KEM with a traditional signature
+   algorithm.  As such, they are designed to provide confidentiality
+   against quantum and classical attacks, but provide authenticity
+   against classical attacks only.  Thus, these cipher suites do not
+   provide full post-quantum security, only post-quantum
+   confidentiality.
 
    The last three cipher suites also use post-quantum signature
    algorithms.
 
    For security considerations related to the KEMs used in this
-   document, please see the documents that define those KEMs
-   [I-D.ietf-hpke-pq] and [I-D.irtf-cfrg-hybrid-kems].  For security
-   considerations related to the post-quantum signature algorithms used
-   in this document, please see [I-D.ietf-tls-mldsa] and [RFC9881].
+   document, please see the documents that define those KEMs:
+   [I-D.ietf-hpke-pq], [I-D.irtf-cfrg-hybrid-kems], and
+   [I-D.irtf-cfrg-concrete-hybrid-kems].  For security considerations
+   related to the post-quantum signature algorithms used in this
+   document, please see [I-D.ietf-tls-mldsa] and [RFC9881].
 
 5.  Normative References
 
@@ -361,6 +366,10 @@ Table of Contents
    [SHS]      "Secure hash standard", National Institute of Standards
               and Technology (U.S.), DOI 10.6028/nist.fips.180-4, 2015,
               <https://doi.org/10.6028/nist.fips.180-4>.
+
+Acknowledgments
+
+   Mark Atwood provided useful corrections and clarifications.
 
 Acknowledgments
 
