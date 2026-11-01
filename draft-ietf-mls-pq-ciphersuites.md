@@ -103,6 +103,9 @@ ChaCha20-Poly1305 was chosen for acceptable performance when implemented entirel
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
 The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
 
+For the cipher suites using ML-DSA, the `SignaturePublicKey` ({{Section 5.1.1 of RFC9420}}) is the ML-DSA public key encoded with `pkEncode` (Algorithm 22 of {{MLDSA}}), not a SubjectPublicKeyInfo structure, and a signature is the byte string output by ML-DSA.Sign (Algorithm 2 of {{MLDSA}}).
+`SignWithLabel` and `VerifyWithLabel` ({{Section 5.1.2 of RFC9420}}) use ML-DSA.Sign and ML-DSA.Verify (Algorithm 3 of {{MLDSA}}) with the serialized `SignContent` as the message and with the {{MLDSA}} context (ctx) parameter set to the empty string; the MLS label carried in `SignContent` provides domain separation.
+
 
 # IANA Considerations
 
