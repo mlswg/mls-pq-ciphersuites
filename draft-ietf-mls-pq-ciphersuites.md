@@ -68,7 +68,7 @@ For asymmetric operations such as KEMs and signatures, entirely new algorithms a
 
 In this document, we define cipher suites that use the post-quantum secure Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{MLDSA}} post-quantum signature algorithms.
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
-The cipher suites with post-quantum signatures use either a pure post-quantum KEM or a PQ/T hybrid KEM.
+The cipher suites with post-quantum signatures use either a pure post-quantum KEM or a Post-Quantum/Traditional (PQ/T) hybrid KEM.
 
 # Post-quantum KEM Cipher Suites
 
@@ -128,7 +128,7 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 | 0x0022 | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |
 
 
-The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!I-D.ietf-tls-rfc8446bis}} is as follows:
+The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes values {{!RFC9846}} is as follows:
 
 | Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:=======|:========|:=======|:=======|:=======|:=======================|
