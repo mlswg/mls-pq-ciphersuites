@@ -68,7 +68,7 @@ For asymmetric operations such as KEMs and signatures, entirely new algorithms a
 
 In this document, we define cipher suites that use the post-quantum secure Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) {{MLKEM}} together with appropriate symmetric algorithms, and either traditional or Module-Lattice-Based Digital Signature Algorithm (ML-DSA) {{MLDSA}} post-quantum signature algorithms.
 The traditional signature cipher suites address the risk of "harvest now, decrypt later" attacks, while not taking on the additional cost of post-quantum signatures.
-The cipher suites with post-quantum signatures use either a pure post-quantum KEM or a PQ/T hybrid KEM.
+The cipher suites with post-quantum signatures use either a pure post-quantum KEM or a Post-Quantum/Traditional (PQ/T) hybrid KEM.
 
 # Post-quantum KEM Cipher Suites
 
@@ -86,7 +86,7 @@ Following the pattern of base MLS, we define several variations, to allow for us
 
 The first two entries are each registered twice: once with AES128 GCM and SHA-256, and once with AES256 GCM and SHA-384.
 
-Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Associated Data (AEAD) {{!RFC5116}} algorithms and hash function as used in the default cipher suite registered in {{!RFC9420}} (AES128 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-256 {{SHS}}), while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}} and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
+Some parts of the community wish to support the 128-bit security level with the same Authenticated Encryption with Associated Data (AEAD) {{!RFC5116}} algorithms and hash function as used in the default cipher suite registered in {{!RFC9420}}: (AES128 GCM {{GCM}}, and HMAC {{!RFC2104}} with SHA-256 {{SHS}}); while other parts of the community would like to follow recent recommendations to transition immediately to AES256 GCM {{GCM}}, and HMAC {{!RFC2104}} with SHA-384 {{SHS}}.
 
 For the cipher suites at the 192-bit or 256-bit security levels, we use AES256 GCM {{GCM}} as the AEAD algorithm, and HMAC {{!RFC2104}} with SHA-384 {{SHS}} as the hash function.
 
@@ -101,7 +101,7 @@ Finally, one of the cipher suites at the 128-bit security level uses the same hy
 ChaCha20-Poly1305 was chosen for acceptable performance when implemented entirely in software.
 
 For the PQ/T hybrid KEMs and the pure ML-KEM HPKE integration, we use the KEMs defined in {{!I-D.ietf-hpke-pq}}.
-The signature schemes for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
+The signature schemes values for ML-DSA-44, ML-DSA-65, and ML-DSA-87 {{MLDSA}} are defined in {{!I-D.ietf-tls-mldsa}}.
 
 For the cipher suites using ML-DSA, the `SignaturePublicKey` ({{Section 5.1.1 of RFC9420}}) is the ML-DSA public key encoded with `pkEncode` (Algorithm 22 of {{MLDSA}}), not a SubjectPublicKeyInfo structure, and a signature is the byte string output by ML-DSA.Sign (Algorithm 2 of {{MLDSA}}).
 `SignWithLabel` and `VerifyWithLabel` ({{Section 5.1.2 of RFC9420}}) use ML-DSA.Sign and ML-DSA.Verify (Algorithm 3 of {{MLDSA}}) with the serialized `SignContent` as the message and with the {{MLDSA}} context (ctx) parameter set to the empty string; the MLS label carried in `SignContent` provides domain separation.
@@ -128,7 +128,7 @@ This document requests that IANA add the following entries to the "MLS Cipher Su
 | 0x0022 | MLS_256_MLKEM1024_AES256GCM_SHA384_MLDSA87      |  Y  | RFCXXXX |
 
 
-The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes {{!I-D.ietf-tls-rfc8446bis}} is as follows:
+The mapping of cipher suites to HPKE primitives {{!I-D.ietf-hpke-hpke}}, HMAC hash functions, and TLS signature schemes values {{!RFC9846}} is as follows:
 
 | Value  | KEM     | KDF    | AEAD   | Hash   | Signature              |
 |:=======|:========|:=======|:=======|:=======|:=======================|
